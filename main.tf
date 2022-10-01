@@ -10,8 +10,14 @@ terraform {
   }
 }
 
+# Google Provider
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs
+
 provider "google" {
 }
+
+# Google Project Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
   source = "git@github.com:osinfra-io/terraform-google-project"
@@ -24,12 +30,12 @@ module "project" {
 
   labels = {
     "environment" = var.env,
-    "system"      = "utils",
-    "team"        = "devops"
+    "system"      = "terraform",
+    "team"        = "shared"
   }
 
-  prefix = "devops"
-  system = "utils"
+  prefix = "shared"
+  system = "terraform"
 }
 
 # KMS CryptoKey Resource
@@ -38,14 +44,23 @@ module "project" {
 resource "google_kms_crypto_key" "terraform_state" {
   key_ring = google_kms_key_ring.terraform_state.id
 
-  labels = merge(
-    {
-      cost-center = "x001"
-    },
-  )
+  labels = {
+    "cost-center" = "x001",
+    "environment" = var.env,
+    "system"      = "terraform",
+    "team"        = "shared"
+  }
 
   name            = "terraform-state"
   rotation_period = "100000s"
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  depends_on = [
+    google_project_service.this
+  ]
 }
 
 # KMS Crypto Key IAM Policy Resource
@@ -64,38 +79,56 @@ resource "google_kms_key_ring" "terraform_state" {
   location = "us"
   name     = "terraform-state-key-ring"
   project  = module.project.project_id
+
+  depends_on = [
+    google_project_service.this
+  ]
+}
+
+# Project Service Resource
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
+
+resource "google_project_service" "this" {
+  for_each = toset(
+    [
+      "cloudkms.googleapis.com",
+    ]
+  )
+
+  project = module.project.project_id
+  service = each.key
+
+  disable_on_destroy = false
 }
 
 # Storage Bucket Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
 
 resource "google_storage_bucket" "terraform_state" {
+
+  # checkov:skip=CKV_GCP_62: In most cases, Cloud Audit Logs is the recommended method for generating logs that track API operations
+  # performed in Cloud Storage.
+
   encryption {
     default_kms_key_name = google_kms_crypto_key.terraform_state.id
   }
 
   force_destroy = false
 
-  labels = merge(
-    {
-      cost-center = "x001"
-    },
-  )
+  labels = {
+    "cost-center" = "x001",
+    "environment" = var.env,
+    "system"      = "terraform",
+    "team"        = "shared"
+  }
 
   location = "us"
-
-  logging {
-    log_bucket        = "HARDCODE_BUCKET_NAME"
-    log_object_prefix = "terraform-state-"
-  }
 
   name    = "${module.project.project_id}-terraform-state"
   project = module.project.project_id
 
-  retention_policy {
-    retention_period = 1800
-    is_locked        = false
-  }
+  # Generally, using uniform bucket-level access is recommended, because it unifies and simplifies how you grant access
+  # to your Cloud Storage resources.
 
   uniform_bucket_level_access = true
 

@@ -33,6 +33,9 @@ plan.out
 # Ignore Infracost directories and files
 .infracost
 
+# Ignore checkov directories and files
+.external_modules
+
 # Other Files
 *.log
 *.bak
