@@ -1,0 +1,7 @@
+# Infracost Config File
+# https://www.infracost.io/docs/features/config_file
+
+version: 0.1
+
+projects:
+  - name: "Google Cloud Platform - Terraform"
