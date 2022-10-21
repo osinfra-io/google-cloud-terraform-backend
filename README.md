@@ -15,7 +15,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.38.0 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.41.0 |
 
 ### Modules
 

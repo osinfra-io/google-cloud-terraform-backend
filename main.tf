@@ -54,10 +54,6 @@ resource "google_kms_crypto_key" "terraform_state" {
   name            = "terraform-state"
   rotation_period = "100000s"
 
-  lifecycle {
-    prevent_destroy = true
-  }
-
   depends_on = [
     google_project_service.this
   ]
