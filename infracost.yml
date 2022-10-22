@@ -4,4 +4,17 @@
 version: 0.1
 
 projects:
-  - name: "Google Cloud Platform - Terraform"
+  - name: "Google Cloud Platform - Terraform: Non-production"
+    path: /
+    terraform_var_files:
+      - tfvars/nonprod.tfvars
+
+  - name: "Google Cloud Platform - Terraform: Production"
+    path: /
+    terraform_var_files:
+      - tfvars/prod.tfvars
+
+  - name: "Google Cloud Platform - Terraform: Sandbox"
+    path: /
+    terraform_var_files:
+      - tfvars/sb.tfvars
