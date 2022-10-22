@@ -10,12 +10,6 @@ terraform {
   }
 }
 
-# Google Provider
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs
-
-provider "google" {
-}
-
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
 
