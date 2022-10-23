@@ -103,7 +103,7 @@ resource "google_storage_bucket" "terraform_state" {
     default_kms_key_name = google_kms_crypto_key.terraform_state.id
   }
 
-  force_destroy = false
+  force_destroy = true
 
   labels = {
     "cost-center" = "x001",
@@ -114,7 +114,7 @@ resource "google_storage_bucket" "terraform_state" {
 
   location = "us"
 
-  name    = "${module.project.project_id}-terraform-state"
+  name    = "${module.project.project_id}-state"
   project = module.project.project_id
 
   # Generally, using uniform bucket-level access is recommended, because it unifies and simplifies how you grant access
