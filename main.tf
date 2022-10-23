@@ -103,7 +103,7 @@ resource "google_storage_bucket" "terraform_state" {
     default_kms_key_name = google_kms_crypto_key.terraform_state.id
   }
 
-  force_destroy = true
+  force_destroy = false
 
   labels = {
     "cost-center" = "x001",
