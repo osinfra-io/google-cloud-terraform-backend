@@ -2,7 +2,7 @@
 
 **[GitHub Actions](https://github.com/osinfra-io/google-cloud-terraform/actions):**
 
-[![Infracost](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/infracost.yml/badge.svg)](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/infracost.yml) [![Dependabot](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/dependabot.yml)
+[![Dependabot](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/google-cloud-terraform/actions/workflows/dependabot.yml)
 
 **[Bridgecrew](https://www.bridgecrew.cloud/projects?types=Passed&repository=osinfra-io%2Fgoogle-cloud-terraform&branch=main):**
 
@@ -17,13 +17,14 @@ This repository builds the Terraform backend for state management. Terraform use
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider_google) | 4.41.0 |
+| <a name="provider_google"></a> [google](#provider_google) | 4.43.0 |
 
 ### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_project"></a> [project](#module_project) | git@github.com:osinfra-io/terraform-google-project | n/a |
+| <a name="module_storage_bucket"></a> [storage_bucket](#module_storage_bucket) | git@github.com:osinfra-io/terraform-google-storage-bucket.git | n/a |
 
 ### Resources
 
@@ -33,7 +34,6 @@ This repository builds the Terraform backend for state management. Terraform use
 | [google_kms_crypto_key_iam_member.terraform_state](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key_iam_member) | resource |
 | [google_kms_key_ring.terraform_state](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) | resource |
 | [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_storage_bucket.terraform_state](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) | resource |
 
 ### Inputs
 
