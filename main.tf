@@ -4,6 +4,10 @@ terraform {
   # https://www.terraform.io/language/providers/requirements#requiring-providers
 
   required_providers {
+
+    # Google Cloud Platform Provider
+    # https://registry.terraform.io/providers/hashicorp/google/latest/docs
+
     google = {
       source = "hashicorp/google"
     }
@@ -32,6 +36,26 @@ module "project" {
   system = "terraform"
 }
 
+# Google Storage Bucket Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-storage-bucket
+
+module "storage_bucket" {
+  source = "git@github.com:osinfra-io/terraform-google-storage-bucket.git"
+
+  default_kms_key_name = google_kms_crypto_key.terraform_state.id
+
+  labels = {
+    "cost-center" = "x001",
+    "environment" = var.env,
+    "system"      = "terraform",
+    "team"        = "shared"
+  }
+
+  location = "us"
+  name     = "state"
+  project  = module.project.project_id
+}
+
 # KMS CryptoKey Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key
 
@@ -51,6 +75,10 @@ resource "google_kms_crypto_key" "terraform_state" {
   depends_on = [
     google_project_service.this
   ]
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 # KMS Crypto Key IAM Policy Resource
@@ -89,40 +117,4 @@ resource "google_project_service" "this" {
   service = each.key
 
   disable_on_destroy = false
-}
-
-# Storage Bucket Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
-
-resource "google_storage_bucket" "terraform_state" {
-
-  # checkov:skip=CKV_GCP_62: In most cases, Cloud Audit Logs is the recommended method for generating logs that track API operations
-  # performed in Cloud Storage.
-
-  encryption {
-    default_kms_key_name = google_kms_crypto_key.terraform_state.id
-  }
-
-  force_destroy = false
-
-  labels = {
-    "cost-center" = "x001",
-    "environment" = var.env,
-    "system"      = "terraform",
-    "team"        = "shared"
-  }
-
-  location = "us"
-
-  name    = "${module.project.project_id}-state"
-  project = module.project.project_id
-
-  # Generally, using uniform bucket-level access is recommended, because it unifies and simplifies how you grant access
-  # to your Cloud Storage resources.
-
-  uniform_bucket_level_access = true
-
-  versioning {
-    enabled = true
-  }
 }
