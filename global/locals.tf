@@ -1,6 +1,7 @@
-locals {
+# Local Values
+# https://www.terraform.io/language/values/locals
 
-  # This builds a map of folder_ids and the key so that permissions can be granted using a single resource with a loop.
+locals {
 
   folder_ids = flatten([
     for k, f in local.folders : [
@@ -11,8 +12,6 @@ locals {
     ]
   ])
 
-  # This builds a map of GitHub repo and key so that permissions can be granted using a single resource with a loop.
-
   iam_members = flatten([
     for k, f in local.folders : [
       for repos in f.github_repos : {
@@ -22,12 +21,7 @@ locals {
     ]
   ])
 
-  # This drives the creation of the onboarding resources. The key is used to generate names of the bucket
-  # and services accounts.  In many cases the key will align with the team name. The folder_ids are used to
-  # grant the service account project creator permissions to the folder. The github_repos are used to grant
-  # repository permissions to the service account.
-
-  # Please keep this file in alphabetical order
+  # Please keep this map in alphabetical order
 
   folders = {
     "logging" = {

@@ -36,7 +36,7 @@ provider "google" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "git@github.com:osinfra-io/terraform-google-project"
+  source = "github.com/osinfra-io/terraform-google-project"
 
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
@@ -59,7 +59,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-storage-bucket
 
 module "storage_bucket" {
-  source   = "git@github.com:osinfra-io/terraform-google-storage-bucket.git"
+  source   = "github.com/osinfra-io/terraform-google-storage-bucket"
   for_each = local.folders
 
   labels = {
@@ -78,13 +78,15 @@ module "storage_bucket" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
 resource "google_cloud_identity_group_membership" "billing_users" {
+
   # The onboarding service account is used by this root module to grant permissions to the google groups
   # Manager permissions were manually granted for the onboarding service account so it needs to be exclude here
+
   for_each = { for k, v in local.folders : k => v if k != "onboarding" }
 
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
-  # id: gcp-billing-users@osinfra.io
+
   group = "groups/02koq6563e8k4u8"
 
   preferred_member_key {
