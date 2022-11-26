@@ -38,7 +38,20 @@ locals {
     }
     "terraform" = {
       folder_ids   = ["582566605193"]
-      github_repos = ["google-cloud-terraform"]
+      github_repos = ["google-cloud-terraform-backend"]
+    }
+    "testing" = {
+      folder_ids = ["155411168404"]
+      github_repos = [
+        "terraform-google-storage-bucket",
+        "terraform-google-project",
+        "terraform-google-kubernetes-engine",
+        "terraform-google-cloud-sql",
+        "terraform-google-cloud-nat",
+        "terraform-google-cloud-dns",
+        "terraform-google-subnet",
+        "terraform-google-vpc"
+      ]
     }
     "identity" = {
       folder_ids   = ["863348505596"]
