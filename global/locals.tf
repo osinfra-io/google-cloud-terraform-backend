@@ -28,19 +28,23 @@ locals {
       folder_ids   = ["774841127628"]
       github_repos = ["google-cloud-logging"]
     }
+
     "observability" = {
       folder_ids   = ["479991724984"]
       github_repos = ["google-cloud-observability"]
     }
+
     "services" = {
       folder_ids   = ["435197788278"]
       github_repos = ["google-cloud-services"]
     }
-    "terraform" = {
+
+    "backend" = {
       folder_ids   = ["582566605193"]
       github_repos = ["google-cloud-terraform-backend"]
     }
-    "testing" = {
+
+    "kitchen" = {
       folder_ids = ["155411168404"]
       github_repos = [
         "terraform-google-storage-bucket",
@@ -53,10 +57,10 @@ locals {
         "terraform-google-vpc"
       ]
     }
+
     "identity" = {
       folder_ids   = ["863348505596"]
       github_repos = ["google-cloud-workload-identity"]
     }
   }
-
 }
