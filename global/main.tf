@@ -87,7 +87,7 @@ resource "google_cloud_identity_group_membership" "billing_users" {
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
 
-  group = "groups/02koq6563e8k4u8"
+  group = "groups/026in1rg0qh4bg4"
 
   preferred_member_key {
     id = google_service_account.this[each.key].email
