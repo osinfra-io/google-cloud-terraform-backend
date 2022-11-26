@@ -4,19 +4,19 @@
 version: 0.1
 
 projects:
-  - name: "google-cloud-terraform - Sandbox: Global"
+  - name: "google-cloud-terraform-backend - Sandbox: Global"
     path: global
     terraform_var_files:
       - tfvars/sb.tfvars
     usage_file: global/tfvars/infracost-usage.yml
 
-  - name: "google-cloud-terraform - Nonprod: Global"
+  - name: "google-cloud-terraform-backend - Nonprod: Global"
     path: global
     terraform_var_files:
       - tfvars/nonprod.tfvars
     usage_file: global/tfvars/infracost-usage.yml
 
-  - name: "google-cloud-terraform - Production: Global"
+  - name: "google-cloud-terraform-backend - Production: Global"
     path: global
     terraform_var_files:
       - tfvars/prod.tfvars
