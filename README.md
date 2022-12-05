@@ -12,4 +12,4 @@ This repository builds the Terraform backend for state management. Terraform use
 
 ## Terraform Documentation
 
-[Global Infrastructure](global/README.md)
+[Global Infrastructure](global/infra/README.md)

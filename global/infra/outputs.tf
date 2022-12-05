@@ -11,16 +11,16 @@ output "project_id" {
   value       = module.project.project_id
 }
 
-output "service_account_emails" {
-  description = "The service account emails"
+output "github_actions_service_account_emails" {
+  description = "The GitHub Actions service account emails"
   value = {
-    for k, s in google_service_account.this : k => s.email
+    for k, s in google_service_account.github_actions : k => s.email
   }
 }
 
-output "storage_buckets" {
+output "terraform_state_storage_buckets" {
   description = "The terraform state bucket names"
   value = {
-    for k, s in module.storage_bucket : k => s.name
+    for k, s in module.terraform_state_storage_bucket : k => s.name
   }
 }

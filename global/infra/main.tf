@@ -22,7 +22,7 @@ terraform {
 }
 
 # The google_cloud_identity_group resource requires this if you are using User ADCs (Application Default Credentials).
-# Your account must have the serviceusage.services.use permission on the billing_project you defined as well.
+# Your account must have the serviceusage.services.use permission on the billing_project you defined.
 # The following APIs must be enabled on the billing_project:
 # - cloudresourcemanager.googleapis.com
 # - cloudidentity.googleapis.com
@@ -58,7 +58,7 @@ module "project" {
 # Google Storage Bucket Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-storage-bucket
 
-module "storage_bucket" {
+module "terraform_state_storage_bucket" {
   source   = "github.com/osinfra-io/terraform-google-storage-bucket"
   for_each = local.folders
 
@@ -77,20 +77,21 @@ module "storage_bucket" {
 # Google Identity Group Membership
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
-resource "google_cloud_identity_group_membership" "billing_users" {
+resource "google_cloud_identity_group_membership" "github_actions" {
 
   # The onboarding service account is used by this root module to grant permissions to the google groups
   # Manager permissions were manually granted for the onboarding service account so it needs to be exclude here
 
-  for_each = { for k, v in local.folders : k => v if k != "onboarding" }
+  for_each = { for k, v in local.folders : k => v }
 
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
 
-  group = "groups/026in1rg0qh4bg4"
+  # This should be the group_id for the gcp-billing-users group created in the google-cloud-hierarchy repository.
+  group = "groups/035nkun223n580s"
 
   preferred_member_key {
-    id = google_service_account.this[each.key].email
+    id = google_service_account.github_actions[each.key].email
   }
 
   roles {
@@ -105,11 +106,11 @@ resource "google_cloud_identity_group_membership" "billing_users" {
 # Google Folder IAM Member
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
 
-resource "google_folder_iam_member" "project_creator" {
+resource "google_folder_iam_member" "github_actions" {
   for_each = { for i in local.folder_ids : "${i.folder_ids}" => i }
 
   folder = "folders/${each.value.folder_ids}"
-  member = "serviceAccount:${google_service_account.this[each.value.name].email}"
+  member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
   role   = "roles/resourcemanager.projectCreator"
 }
 
@@ -135,32 +136,32 @@ resource "google_project_service" "this" {
 # Google Service Account Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
 
-resource "google_service_account" "this" {
+resource "google_service_account" "github_actions" {
   for_each = local.folders
 
   account_id   = "${each.key}-github-actions"
-  display_name = "Service account for GitHub Actions: ${each.key}"
+  display_name = "Service account for GitHub Actions"
   project      = module.project.project_id
 }
 
 # Google Service Account IAM Member Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
 
-resource "google_service_account_iam_member" "this" {
+resource "google_service_account_iam_member" "github_actions" {
   for_each = { for i in local.iam_members : "${i.repo}" => i }
 
   member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repo}"
   role               = "roles/iam.workloadIdentityUser"
-  service_account_id = google_service_account.this[each.value.name].id
+  service_account_id = google_service_account.github_actions[each.value.name].id
 }
 
 # Google Storage Bucket IAM Member
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member
 
-resource "google_storage_bucket_iam_member" "this" {
+resource "google_storage_bucket_iam_member" "github_actions" {
   for_each = local.folders
 
-  bucket = module.storage_bucket[each.key].name
-  member = "serviceAccount:${google_service_account.this[each.key].email}"
+  bucket = module.terraform_state_storage_bucket[each.key].name
+  member = "serviceAccount:${google_service_account.github_actions[each.key].email}"
   role   = "roles/storage.objectAdmin"
 }
