@@ -40,7 +40,7 @@ locals {
 
   folders = {
     "backend" = {
-      folder_ids   = ["582566605193"]
+      folder_ids   = ["75516075614"]
       github_repos = ["google-cloud-terraform-backend"]
     }
 
@@ -50,7 +50,7 @@ locals {
     }
 
     "kitchen" = {
-      folder_ids = ["155411168404"]
+      folder_ids = ["760803226038"]
       github_repos = [
         "terraform-google-storage-bucket",
         "terraform-google-project",

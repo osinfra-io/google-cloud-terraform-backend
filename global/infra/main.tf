@@ -106,7 +106,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 resource "google_folder_iam_member" "github_actions" {
   for_each = { for folders_key in local.folder_ids : "${folders_key.folder_id}" => folders_key }
 
-  folder = "folders/${each.value.folder_ids}"
+  folder = "folders/${each.value.folder_id}"
   member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
   role   = "roles/resourcemanager.projectCreator"
 }
