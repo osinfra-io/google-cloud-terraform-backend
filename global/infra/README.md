@@ -1,4 +1,4 @@
-# Terraform Documentation
+# Terraform Global Infrastructure Documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -9,25 +9,25 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.44.1 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.45.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | n/a |
-| <a name="module_storage_bucket"></a> [storage\_bucket](#module\_storage\_bucket) | github.com/osinfra-io/terraform-google-storage-bucket | n/a |
+| <a name="module_terraform_state_storage_bucket"></a> [terraform\_state\_storage\_bucket](#module\_terraform\_state\_storage\_bucket) | github.com/osinfra-io/terraform-google-storage-bucket | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_cloud_identity_group_membership.billing_users](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) | resource |
-| [google_folder_iam_member.project_creator](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/folder_iam_member) | resource |
+| [google_cloud_identity_group_membership.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) | resource |
+| [google_folder_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/folder_iam_member) | resource |
 | [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_service_account.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
-| [google_service_account_iam_member.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
-| [google_storage_bucket_iam_member.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam_member) | resource |
+| [google_service_account.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_service_account_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
+| [google_storage_bucket_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam_member) | resource |
 
 ## Inputs
 
@@ -45,8 +45,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_github_actions_service_account_emails"></a> [github\_actions\_service\_account\_emails](#output\_github\_actions\_service\_account\_emails) | The GitHub Actions service account emails |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
-| <a name="output_service_account_emails"></a> [service\_account\_emails](#output\_service\_account\_emails) | The service account emails |
-| <a name="output_storage_buckets"></a> [storage\_buckets](#output\_storage\_buckets) | The terraform state bucket names |
+| <a name="output_terraform_state_storage_buckets"></a> [terraform\_state\_storage\_buckets](#output\_terraform\_state\_storage\_buckets) | The terraform state bucket names |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
