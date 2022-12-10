@@ -78,16 +78,13 @@ module "terraform_state_storage_bucket" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
 resource "google_cloud_identity_group_membership" "github_actions" {
-
-  # The onboarding service account is used by this root module to grant permissions to the google groups
-  # Manager permissions were manually granted for the onboarding service account so it needs to be exclude here
-
-  for_each = { for k, v in local.folders : k => v }
+  for_each = { for folders_key, name in local.folders : folders_key => name }
 
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
 
   # This should be the group_id for the gcp-billing-users group created in the google-cloud-hierarchy repository.
+
   group = "groups/035nkun223n580s"
 
   preferred_member_key {
@@ -107,7 +104,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
 
 resource "google_folder_iam_member" "github_actions" {
-  for_each = { for i in local.folder_ids : "${i.folder_ids}" => i }
+  for_each = { for folders_key in local.folder_ids : "${folders_key.folder_id}" => folders_key }
 
   folder = "folders/${each.value.folder_ids}"
   member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
@@ -148,7 +145,7 @@ resource "google_service_account" "github_actions" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
 
 resource "google_service_account_iam_member" "github_actions" {
-  for_each = { for i in local.iam_members : "${i.repo}" => i }
+  for_each = { for folders_key in local.iam_members : "${folders_key.repo}" => folders_key }
 
   member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repo}"
   role               = "roles/iam.workloadIdentityUser"

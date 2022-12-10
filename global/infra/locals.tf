@@ -8,20 +8,30 @@ locals {
   # flatten ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.
 
+
   folder_ids = flatten([
-    for k, f in local.folders : [
-      for folder_ids in f.folder_ids : {
-        name       = k
-        folder_ids = folder_ids
+
+    # This will iterate over the object values of the folders map and return a list of maps
+    # based of the folder IDs that includes the name key.
+
+    for folders_key, name in local.folders : [
+      for folder_id in name.folder_ids : {
+        name      = folders_key
+        folder_id = folder_id
       }
     ]
   ])
 
+
   iam_members = flatten([
-    for k, f in local.folders : [
-      for repos in f.github_repos : {
-        name = k
-        repo = repos
+
+    # This will iterate over the object values of the folders map and return a list of maps
+    # based of the repositories that includes the name key.
+
+    for folders_key, name in local.folders : [
+      for repo in name.github_repos : {
+        name = folders_key
+        repo = repo
       }
     ]
   ])
