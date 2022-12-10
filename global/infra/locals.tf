@@ -40,17 +40,32 @@ locals {
 
   folders = {
     "backend" = {
-      folder_ids   = ["75516075614"]
+      folder_ids = var.env == "sb" ? [
+        "472942506775"
+        ] : var.env == "prod" ? [
+        "696376416743"
+        ] : [
+        "304873708680"
+      ]
       github_repos = ["google-cloud-terraform-backend"]
     }
 
     "identity" = {
-      folder_ids   = ["156062445047"]
+      folder_ids = var.env == "sb" ? [
+        "766336877343"
+        ] : var.env == "prod" ? [
+        "12296811897"
+        ] : [
+        "885562390425"
+      ]
       github_repos = ["google-cloud-workload-identity"]
     }
 
     "kitchen" = {
-      folder_ids = ["760803226038"]
+      folder_ids = var.env == "sb" ? [
+        "773178458475"
+      ] : []
+
       github_repos = [
         "terraform-google-storage-bucket",
         "terraform-google-project",
@@ -64,17 +79,35 @@ locals {
     }
 
     "logging" = {
-      folder_ids   = ["639396492924"]
+      folder_ids = var.env == "sb" ? [
+        "549027470269"
+        ] : var.env == "prod" ? [
+        "2807385679"
+        ] : [
+        "382807484860"
+      ]
       github_repos = ["google-cloud-logging"]
     }
 
     "observability" = {
-      folder_ids   = ["553837839879"]
+      folder_ids = var.env == "sb" ? [
+        "386339487978"
+        ] : var.env == "prod" ? [
+        "175423741158"
+        ] : [
+        "28730462134"
+      ]
       github_repos = ["google-cloud-observability"]
     }
 
     "services" = {
-      folder_ids   = ["606765401021"]
+      folder_ids = var.env == "sb" ? [
+        "214868359784"
+        ] : var.env == "prod" ? [
+        "66049090007"
+        ] : [
+        "588745651780"
+      ]
       github_repos = ["google-cloud-services"]
     }
   }
