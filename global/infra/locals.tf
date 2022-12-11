@@ -67,12 +67,13 @@ locals {
       ] : []
 
       github_repos = [
-        "terraform-google-storage-bucket",
-        "terraform-google-project",
-        "terraform-google-kubernetes-engine",
-        "terraform-google-cloud-sql",
-        "terraform-google-cloud-nat",
+        "google-cloud-terraform-kitchen",
         "terraform-google-cloud-dns",
+        "terraform-google-cloud-nat",
+        "terraform-google-cloud-sql",
+        "terraform-google-kubernetes-engine",
+        "terraform-google-project",
+        "terraform-google-storage-bucket",
         "terraform-google-subnet",
         "terraform-google-vpc"
       ]
