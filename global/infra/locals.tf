@@ -67,7 +67,7 @@ locals {
       ] : []
 
       github_repos = [
-        "google-cloud-terraform-kitchen",
+        "google-cloud-kitchen-terraform",
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
         "terraform-google-cloud-sql",
