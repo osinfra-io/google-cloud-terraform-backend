@@ -12,12 +12,6 @@ variable "billing_project" {
   type        = string
 }
 
-variable "bridgecrew_api_key" {
-  description = "The Bridgecrew runtime API key"
-  type        = string
-  sensitive   = true
-}
-
 variable "cis_2_2_logging_sink_project_id" {
   description = "The CIS 2.2 logging sink benchmark project ID"
   type        = string
