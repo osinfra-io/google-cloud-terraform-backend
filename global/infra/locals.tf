@@ -2,39 +2,6 @@
 # https://www.terraform.io/language/values/locals
 
 locals {
-  # Flatten Function
-  # https://developer.hashicorp.com/terraform/language/functions/flatten
-
-  # flatten ensures that this local value is a flat list of objects, rather
-  # than a list of lists of objects.
-
-
-  folder_ids = flatten([
-
-    # This will iterate over the object values of the folders map and return a list of maps
-    # based of the folder IDs that includes the name key.
-
-    for folders_key, name in local.folders : [
-      for folder_id in name.folder_ids : {
-        name      = folders_key
-        folder_id = folder_id
-      }
-    ]
-  ])
-
-
-  iam_members = flatten([
-
-    # This will iterate over the object values of the folders map and return a list of maps
-    # based of the repositories that includes the name key.
-
-    for folders_key, name in local.folders : [
-      for repo in name.github_repos : {
-        name = folders_key
-        repo = repo
-      }
-    ]
-  ])
 
   # Please keep this map in alphabetical order
 
@@ -47,7 +14,7 @@ locals {
         ] : [
         "304873708680"
       ]
-      github_repos = ["google-cloud-terraform-backend"]
+      github_repositories = ["google-cloud-terraform-backend"]
     }
 
     "identity" = {
@@ -58,7 +25,7 @@ locals {
         ] : [
         "885562390425"
       ]
-      github_repos = ["google-cloud-workload-identity"]
+      github_repositories = ["google-cloud-workload-identity"]
     }
 
     "kitchen" = {
@@ -66,7 +33,7 @@ locals {
         "773178458475"
       ] : []
 
-      github_repos = [
+      github_repositories = [
         "google-cloud-kitchen-terraform",
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
@@ -87,7 +54,7 @@ locals {
         ] : [
         "382807484860"
       ]
-      github_repos = ["google-cloud-logging"]
+      github_repositories = ["google-cloud-logging"]
     }
 
     "observability" = {
@@ -98,7 +65,7 @@ locals {
         ] : [
         "28730462134"
       ]
-      github_repos = ["google-cloud-observability"]
+      github_repositories = ["google-cloud-observability"]
     }
 
     "services" = {
@@ -109,7 +76,41 @@ locals {
         ] : [
         "588745651780"
       ]
-      github_repos = ["google-cloud-services"]
+      github_repositories = ["google-cloud-services"]
     }
   }
+
+  # Flatten Function
+  # https://developer.hashicorp.com/terraform/language/functions/flatten
+
+  # flatten ensures that this local value is a flat list of objects, rather
+  # than a list of lists of objects.
+
+
+  folder_ids = { for folder_id in flatten([
+
+    # This will iterate over the folders map and return a list of maps
+    # based of the folder_ids that includes the name key.
+
+    for folder_key, name in local.folders : [
+      for folder_id in name.folder_ids : {
+        folder_id = folder_id
+        name      = folder_key
+      }
+    ]
+  ]) : folder_id.folder_id => folder_id }
+
+
+  github_repositories = { for folder_id in flatten([
+
+    # This will iterate over the folders map and return a list of maps
+    # based of the github_repositories that includes the name key.
+
+    for folder_key, name in local.folders : [
+      for repository in name.github_repositories : {
+        name       = folder_key
+        repository = repository
+      }
+    ]
+  ]) : folder_id.repository => folder_id }
 }

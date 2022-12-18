@@ -9,7 +9,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.45.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.46.0 |
 
 ## Modules
 
@@ -48,5 +48,5 @@ No requirements.
 | <a name="output_github_actions_service_account_emails"></a> [github\_actions\_service\_account\_emails](#output\_github\_actions\_service\_account\_emails) | The GitHub Actions service account emails |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
 | <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
-| <a name="output_terraform_state_storage_buckets"></a> [terraform\_state\_storage\_buckets](#output\_terraform\_state\_storage\_buckets) | The terraform state bucket names |
+| <a name="output_terraform_state_storage_buckets"></a> [terraform\_state\_storage\_buckets](#output\_terraform\_state\_storage\_buckets) | The Terraform state bucket names |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

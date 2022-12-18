@@ -78,7 +78,7 @@ module "terraform_state_storage_bucket" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
 resource "google_cloud_identity_group_membership" "github_actions" {
-  for_each = { for folders_key, name in local.folders : folders_key => name }
+  for_each = local.folders
 
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
@@ -104,7 +104,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
 
 resource "google_folder_iam_member" "github_actions" {
-  for_each = { for folders_key in local.folder_ids : "${folders_key.folder_id}" => folders_key }
+  for_each = local.folder_ids
 
   folder = "folders/${each.value.folder_id}"
   member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
@@ -145,9 +145,9 @@ resource "google_service_account" "github_actions" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
 
 resource "google_service_account_iam_member" "github_actions" {
-  for_each = { for folders_key in local.iam_members : "${folders_key.repo}" => folders_key }
+  for_each = local.github_repositories
 
-  member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repo}"
+  member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repository}"
   role               = "roles/iam.workloadIdentityUser"
   service_account_id = google_service_account.github_actions[each.value.name].id
 }
