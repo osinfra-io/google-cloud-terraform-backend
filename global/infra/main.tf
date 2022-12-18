@@ -114,14 +114,10 @@ resource "google_folder_iam_member" "github_actions" {
 # Project Service Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 
+# Any API that is going to be used by the platforms must be enabled here.
+
 resource "google_project_service" "this" {
-  for_each = toset(
-    [
-      "cloudidentity.googleapis.com",
-      "iam.googleapis.com",
-      "iamcredentials.googleapis.com"
-    ]
-  )
+  for_each = local.project_services
 
   project = module.project.project_id
   service = each.key
