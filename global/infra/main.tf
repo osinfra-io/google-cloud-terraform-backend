@@ -85,7 +85,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 
   # This should be the group_id for the gcp-billing-users group created in the google-cloud-hierarchy repository.
 
-  group = "groups/035nkun223n580s"
+  group = "groups/043ky6rz1fxeewi"
 
   preferred_member_key {
     id = google_service_account.github_actions[each.key].email
