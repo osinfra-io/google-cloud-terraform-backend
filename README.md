@@ -86,6 +86,7 @@ Links to documentation and other resources required to develop and iterate in th
 - [Google Cloud Platform cloud identity groups](https://cloud.google.com/identity/docs/concepts/groups)
 - [Google Cloud Platform service accounts](https://cloud.google.com/iam/docs/service-accounts)
 - [Google Cloud Platform IAM roles](https://cloud.google.com/iam/docs/understanding-roles)
+- [Terraform backend type GCS](https://developer.hashicorp.com/terraform/language/settings/backends/gcs)
 
 ### Terraform Documentation
 
