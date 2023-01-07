@@ -14,13 +14,13 @@ output "project_id" {
 output "github_actions_service_account_emails" {
   description = "The GitHub Actions service account emails"
   value = {
-    for folder_key, service_account in google_service_account.github_actions : folder_key => service_account.email
+    for k, v in google_service_account.github_actions : k => v.email
   }
 }
 
 output "terraform_state_storage_buckets" {
   description = "The Terraform state bucket names"
   value = {
-    for folder_key, storage_bucket in module.terraform_state_storage_bucket : folder_key => storage_bucket.name
+    for k, v in module.terraform_state_storage_bucket : k => v.name
   }
 }

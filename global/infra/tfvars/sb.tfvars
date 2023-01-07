@@ -1,3 +1,3 @@
-cis_2_2_logging_sink_project_id = "shared-audit01-tf74d4-sb"
+cis_2_2_logging_sink_project_id = "shared-audit01-tff6-sb"
 folder_id                       = "704512602403"
-workload_identity_pool_name     = "projects/1020282921049/locations/global/workloadIdentityPools/github-actions"
+workload_identity_pool_name     = "projects/417072053896/locations/global/workloadIdentityPools/github-actions"
