@@ -7,9 +7,9 @@ locals {
 
   folders = {
     "backend" = {
-      folder_ids = var.env == "sb" ? [
+      folder_ids = var.environment == "sb" ? [
         "472942506775"
-        ] : var.env == "prod" ? [
+        ] : var.environment == "prod" ? [
         "696376416743"
         ] : [
         "304873708680"
@@ -18,9 +18,9 @@ locals {
     }
 
     "identity" = {
-      folder_ids = var.env == "sb" ? [
+      folder_ids = var.environment == "sb" ? [
         "766336877343"
-        ] : var.env == "prod" ? [
+        ] : var.environment == "prod" ? [
         "12296811897"
         ] : [
         "885562390425"
@@ -29,7 +29,7 @@ locals {
     }
 
     "kitchen" = {
-      folder_ids = var.env == "sb" ? [
+      folder_ids = var.environment == "sb" ? [
         "773178458475"
       ] : []
 
@@ -46,21 +46,21 @@ locals {
       ]
     }
 
-    "logging" = {
-      folder_ids = var.env == "sb" ? [
+    "audit" = {
+      folder_ids = var.environment == "sb" ? [
         "549027470269"
-        ] : var.env == "prod" ? [
+        ] : var.environment == "prod" ? [
         "2807385679"
         ] : [
         "382807484860"
       ]
-      github_repositories = ["google-cloud-logging"]
+      github_repositories = ["google-cloud-audit-logging"]
     }
 
     "observability" = {
-      folder_ids = var.env == "sb" ? [
+      folder_ids = var.environment == "sb" ? [
         "386339487978"
-        ] : var.env == "prod" ? [
+        ] : var.environment == "prod" ? [
         "175423741158"
         ] : [
         "28730462134"
@@ -69,9 +69,9 @@ locals {
     }
 
     "services" = {
-      folder_ids = var.env == "sb" ? [
+      folder_ids = var.environment == "sb" ? [
         "214868359784"
-        ] : var.env == "prod" ? [
+        ] : var.environment == "prod" ? [
         "66049090007"
         ] : [
         "588745651780"

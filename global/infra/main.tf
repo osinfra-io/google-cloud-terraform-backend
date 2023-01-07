@@ -41,18 +41,17 @@ module "project" {
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
   cost_center                     = "x001"
-  env                             = var.env
+  description                     = "terraform"
+  environment                     = var.environment
   folder_id                       = var.folder_id
 
   labels = {
-    "environment" = var.env
-    "system"      = "terraform"
-    "team"        = "shared"
+    "environment" = var.environment
+    "description" = "terraform"
+    "platform"    = "google-cloud-landing-zone"
   }
 
-  prefix            = "shared"
-  random_project_id = var.random_project_id
-  system            = "terraform"
+  prefix = "shared"
 }
 
 # Google Storage Bucket Module (osinfra.io)
@@ -64,9 +63,9 @@ module "terraform_state_storage_bucket" {
 
   labels = {
     "cost-center" = "x001"
-    "environment" = var.env
-    "system"      = "terraform"
-    "team"        = each.key
+    "environment" = var.environment
+    "description" = "terraform"
+    "platform"    = "google-cloud-landing-zone"
   }
 
   location = "us"
@@ -85,7 +84,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 
   # This should be the group_id for the gcp-billing-users group created in the google-cloud-hierarchy repository.
 
-  group = "groups/043ky6rz1fxeewi"
+  group = "groups/${var.billing_users_group_id}"
 
   preferred_member_key {
     id = google_service_account.github_actions[each.key].email
