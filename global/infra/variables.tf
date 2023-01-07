@@ -7,6 +7,12 @@ variable "billing_account" {
   sensitive   = true
 }
 
+variable "billing_users_group_id" {
+  description = "The numeric ID of the billing users group"
+  type        = string
+  default     = "01mrcu091mv2y1x"
+}
+
 variable "billing_project" {
   description = "The quota project to send in `user_project_override`, used for all requests sent from the provider. If set on a resource that supports sending the resource project, this value will supersede the resource project. This field is ignored if `user_project_override` is set to false or unset"
   type        = string
@@ -17,7 +23,7 @@ variable "cis_2_2_logging_sink_project_id" {
   type        = string
 }
 
-variable "env" {
+variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
   default     = "sb"
@@ -26,12 +32,6 @@ variable "env" {
 variable "folder_id" {
   description = "The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified"
   type        = string
-}
-
-variable "random_project_id" {
-  description = "This will add a random value in the project ID if set to true"
-  type        = bool
-  default     = false
 }
 
 variable "workload_identity_pool_name" {
