@@ -17,6 +17,11 @@ locals {
       github_repositories = ["google-cloud-terraform-backend"]
     }
 
+    "hierarchy" = {
+      folder_ids          = []
+      github_repositories = ["google-cloud-terraform-hierarchy"]
+    }
+
     "identity" = {
       folder_ids = var.environment == "sb" ? [
         "766336877343"
