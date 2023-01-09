@@ -3,7 +3,7 @@
 
 locals {
 
-  # Please keep this map in alphabetical order
+  # Please keep this map in alphabetical order.
 
   folders = {
     "backend" = {
@@ -18,8 +18,12 @@ locals {
     }
 
     "hierarchy" = {
+
+      # The service account used to create the folder hierarchy will need to be added
+      # to the Groups Admins role in the Google Workspace Admin Console.
+
       folder_ids          = []
-      github_repositories = ["google-cloud-terraform-hierarchy"]
+      github_repositories = ["google-cloud-hierarchy"]
     }
 
     "identity" = {
