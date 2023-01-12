@@ -17,7 +17,7 @@ locals {
       github_repositories = ["google-cloud-terraform-backend"]
     }
 
-    "github" = {
+    "organization" = {
       folder_ids          = []
       github_repositories = ["github-organization-management"]
     }
