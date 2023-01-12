@@ -17,6 +17,11 @@ locals {
       github_repositories = ["google-cloud-terraform-backend"]
     }
 
+    "github" = {
+      folder_ids          = []
+      github_repositories = ["github-organization-management"]
+    }
+
     "hierarchy" = {
 
       # The service account used to create the folder hierarchy will need to be added
