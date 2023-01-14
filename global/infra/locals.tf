@@ -42,12 +42,13 @@ locals {
       github_repositories = ["google-cloud-workload-identity"]
     }
 
-    "kitchen" = {
+    "testing" = {
       folder_ids = var.environment == "sb" ? [
         "773178458475"
       ] : []
 
       github_repositories = [
+        "github-terraform-gcp-called-workflows",
         "google-cloud-kitchen-terraform",
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
