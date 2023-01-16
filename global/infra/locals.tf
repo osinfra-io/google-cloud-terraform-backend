@@ -8,11 +8,11 @@ locals {
   folders = {
     "backend" = {
       folder_ids = var.environment == "sb" ? [
-        "472942506775"
+        "704512602403"
         ] : var.environment == "prod" ? [
-        "696376416743"
+        "197060106393"
         ] : [
-        "304873708680"
+        "41386811783"
       ]
       github_repositories = ["google-cloud-terraform-backend"]
     }
@@ -33,18 +33,18 @@ locals {
 
     "identity" = {
       folder_ids = var.environment == "sb" ? [
-        "766336877343"
+        "544336345061"
         ] : var.environment == "prod" ? [
-        "12296811897"
+        "310936952825"
         ] : [
-        "885562390425"
+        "553241873012"
       ]
       github_repositories = ["google-cloud-workload-identity"]
     }
 
     "testing" = {
       folder_ids = var.environment == "sb" ? [
-        "773178458475"
+        "21945465219"
       ] : []
 
       github_repositories = [
@@ -63,33 +63,33 @@ locals {
 
     "audit" = {
       folder_ids = var.environment == "sb" ? [
-        "549027470269"
+        "1041886242358"
         ] : var.environment == "prod" ? [
-        "2807385679"
+        "450157769308"
         ] : [
-        "382807484860"
+        "859475012086"
       ]
       github_repositories = ["google-cloud-audit-logging"]
     }
 
     "observability" = {
       folder_ids = var.environment == "sb" ? [
-        "386339487978"
+        "48432288917"
         ] : var.environment == "prod" ? [
-        "175423741158"
+        "711896275617"
         ] : [
-        "28730462134"
+        "213944643261"
       ]
       github_repositories = ["google-cloud-observability"]
     }
 
     "services" = {
       folder_ids = var.environment == "sb" ? [
-        "214868359784"
+        "1040290457625"
         ] : var.environment == "prod" ? [
-        "66049090007"
+        "93071714283"
         ] : [
-        "588745651780"
+        "212956865142"
       ]
       github_repositories = ["google-cloud-services"]
     }
