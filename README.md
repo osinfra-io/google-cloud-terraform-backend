@@ -35,7 +35,7 @@ This repository builds the Terraform backend for state management. Terraform use
 
 ### Service Interfaces
 
-WIP
+[Add or update new Terraform backend](https://github.com/osinfra-io/google-cloud-terraform-backend/issues/new?assignees=&labels=enhancement%2Cgood+first+issue&template=add-update-backend.yml&title=Add%2FUpdate+New+Terraform+Backend)
 
 ### Response Times
 
