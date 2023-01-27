@@ -37,3 +37,11 @@ body:
       placeholder: google-cloud-kubernetes-engine-autopilot, ...
     validations:
       required: true
+    
+  - type: textarea
+    id: comments
+    attributes:
+      label: "Additional comments:"
+      description: Anything else you'd like to add that would help us understand your request better?
+    validations:
+      required: false
