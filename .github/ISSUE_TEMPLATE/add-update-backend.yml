@@ -1,0 +1,39 @@
+name: Add/Update New Terraform Backend
+description: Service interface for adding or updating a new Terraform backend to the Open Source Infrastructure (as Code) organization.
+title: Add/Update New Terraform Backend
+labels:
+  - enhancement
+  - good first issue
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the following details to request a new Terraform backend for the Open Source Infrastructure (as Code) organization.
+
+  - type: input
+    id: email-address
+    attributes:
+      label: "Email address:"
+      description: How can we get in touch with you if we need more info?
+      placeholder: email@example.com
+    validations:
+      required: true
+
+  - type: input
+    id: google-folder-name
+    attributes:
+      label: "Google team and service folder name:"
+      description: The name of the Google team and service folder to create or update.
+      placeholder: Stream Aligned Team/Service
+    validations:
+      required: true
+
+  - type: input
+    id: github-repository-names
+    attributes:
+      label: "Repository names:"
+      description: The name of the repositories to add that are allowed to create resources in the above Google folder using OIDC authentication.
+      placeholder: stream-aligned-repo, ...
+    validations:
+      required: true
