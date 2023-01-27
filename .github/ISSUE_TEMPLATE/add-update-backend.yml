@@ -34,6 +34,6 @@ body:
     attributes:
       label: "Repository name(s):"
       description: The name or names of the repositories to add that are allowed to create resources in the above Google folder path using OIDC authentication.
-      placeholder: platform-google-cloud-kubernetes-engine-autopilot, ...
+      placeholder: google-cloud-kubernetes-engine-autopilot, ...
     validations:
       required: true
