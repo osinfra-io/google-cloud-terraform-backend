@@ -25,7 +25,7 @@ body:
     attributes:
       label: "Google folder path:"
       description: The path of the Google folder to create or update.
-      placeholder: Platform - Google Cloud Kubernetes Engine/Autopilot
+      placeholder: Platform - Kubernetes Engine/Autopilot
     validations:
       required: true
 
