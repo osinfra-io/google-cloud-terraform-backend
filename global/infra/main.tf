@@ -51,7 +51,7 @@ module "project" {
     "platform"    = "google-cloud-landing-zone"
   }
 
-  prefix = "shared"
+  prefix = "ptl-lz"
 }
 
 # Google Storage Bucket Module (osinfra.io)
@@ -131,7 +131,7 @@ resource "google_project_service" "this" {
 resource "google_service_account" "github_actions" {
   for_each = local.folders
 
-  account_id   = "${each.key}-github-actions"
+  account_id   = "${each.key}-github"
   display_name = "Service account for GitHub Actions"
   project      = module.project.project_id
 }

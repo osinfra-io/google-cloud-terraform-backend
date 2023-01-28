@@ -10,7 +10,7 @@ variable "billing_account" {
 variable "billing_users_group_id" {
   description = "The numeric ID of the billing users group"
   type        = string
-  default     = "01mrcu091mv2y1x"
+  default     = "03dy6vkm4a7ag9g"
 }
 
 variable "billing_project" {

@@ -9,7 +9,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.49.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.50.0 |
 
 ## Modules
 
@@ -35,7 +35,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The alphanumeric ID of the billing account this project belongs to | `string` | n/a | yes |
 | <a name="input_billing_project"></a> [billing\_project](#input\_billing\_project) | The quota project to send in `user_project_override`, used for all requests sent from the provider. If set on a resource that supports sending the resource project, this value will supersede the resource project. This field is ignored if `user_project_override` is set to false or unset | `string` | n/a | yes |
-| <a name="input_billing_users_group_id"></a> [billing\_users\_group\_id](#input\_billing\_users\_group\_id) | The numeric ID of the billing users group | `string` | `"01mrcu091mv2y1x"` | no |
+| <a name="input_billing_users_group_id"></a> [billing\_users\_group\_id](#input\_billing\_users\_group\_id) | The numeric ID of the billing users group | `string` | `"03dy6vkm4a7ag9g"` | no |
 | <a name="input_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#input\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |

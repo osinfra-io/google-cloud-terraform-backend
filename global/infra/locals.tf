@@ -6,23 +6,23 @@ locals {
   # Please keep this map in alphabetical order.
 
   folders = {
-    "backend" = {
+    "plt-lz-backend" = {
       folder_ids = var.environment == "sb" ? [
-        "704512602403"
+        "515753002772"
         ] : var.environment == "prod" ? [
-        "197060106393"
+        "131486843041"
         ] : [
-        "41386811783"
+        "574432336767"
       ]
       github_repositories = ["google-cloud-terraform-backend"]
     }
 
-    "organization" = {
+    "plt-gh-organization" = {
       folder_ids          = []
       github_repositories = ["github-organization-management"]
     }
 
-    "hierarchy" = {
+    "plt-lz-hierarchy" = {
 
       # The service account used to create the folder hierarchy will need to be added
       # to the Groups Admins role in the Google Workspace Admin Console.
@@ -31,20 +31,20 @@ locals {
       github_repositories = ["google-cloud-hierarchy"]
     }
 
-    "identity" = {
+    "plt-lz-identity" = {
       folder_ids = var.environment == "sb" ? [
-        "544336345061"
+        "267179923152"
         ] : var.environment == "prod" ? [
-        "310936952825"
+        "679274494921"
         ] : [
-        "553241873012"
+        "8288220956"
       ]
       github_repositories = ["google-cloud-workload-identity"]
     }
 
-    "testing" = {
+    "plt-lz-testing" = {
       folder_ids = var.environment == "sb" ? [
-        "21945465219"
+        "1069400145815"
       ] : []
 
       github_repositories = [
@@ -53,7 +53,7 @@ locals {
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
         "terraform-google-cloud-sql",
-        "terraform-google-kubernetes-engine",
+        "terraform-google-kubernetes-engine-autopilot",
         "terraform-google-project",
         "terraform-google-storage-bucket",
         "terraform-google-subnet",
@@ -61,37 +61,15 @@ locals {
       ]
     }
 
-    "audit" = {
+    "plt-lz-audit" = {
       folder_ids = var.environment == "sb" ? [
-        "1041886242358"
+        "390812006260"
         ] : var.environment == "prod" ? [
-        "450157769308"
+        "606239917687"
         ] : [
-        "859475012086"
+        "988946273293"
       ]
       github_repositories = ["google-cloud-audit-logging"]
-    }
-
-    "observability" = {
-      folder_ids = var.environment == "sb" ? [
-        "48432288917"
-        ] : var.environment == "prod" ? [
-        "711896275617"
-        ] : [
-        "213944643261"
-      ]
-      github_repositories = ["google-cloud-observability"]
-    }
-
-    "services" = {
-      folder_ids = var.environment == "sb" ? [
-        "1040290457625"
-        ] : var.environment == "prod" ? [
-        "93071714283"
-        ] : [
-        "212956865142"
-      ]
-      github_repositories = ["google-cloud-services"]
     }
   }
 
