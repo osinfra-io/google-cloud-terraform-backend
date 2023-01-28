@@ -69,7 +69,7 @@ module "terraform_state_storage_bucket" {
   }
 
   location = "us"
-  name     = each.key
+  name     = "${each.key}-${random_id.bucket.hex}-${var.environment}"
   project  = module.project.project_id
 }
 
@@ -156,4 +156,11 @@ resource "google_storage_bucket_iam_member" "github_actions" {
   bucket = module.terraform_state_storage_bucket[each.key].name
   member = "serviceAccount:${google_service_account.github_actions[each.key].email}"
   role   = "roles/storage.objectAdmin"
+}
+
+# Random Random ID Resource
+# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
+
+resource "random_id" "bucket" {
+  byte_length = 2
 }
