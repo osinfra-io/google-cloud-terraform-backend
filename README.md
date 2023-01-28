@@ -39,7 +39,7 @@ This repository builds the Terraform backend for state management. Terraform use
 
 ### Response Times
 
-- Responsible team: [Google Cloud Platform Team](https://github.com/orgs/osinfra-io/teams/google-cloud-platform-team)
+- Responsible team: [Platform - Google Cloud Landing Zone](https://github.com/orgs/osinfra-io/teams/google-cloud-platform-team)
 - Response time for incidents: `60 minutes`
 - Response time for other incidents: `120 minutes`
 - Response time for support:  `60 minutes`
@@ -55,15 +55,15 @@ This repository builds the Terraform backend for state management. Terraform use
 
 Contact exclusively via:
 
-- Google Chat: [Google Cloud Platform](https://chat.google.com/room/AAAAQV2ucwU?cls=7)
+- Google Chat: [Platform - Google Cloud Landing Zone](https://chat.google.com/room/AAAAYvP1tRg?cls=4)
 - Phone number:
 
 #### To ask for support or provide feedback
 
 Contact via any of these:
 
-- Google Chat: [Google Cloud Platform](https://chat.google.com/room/AAAAQV2ucwU?cls=7)
-- Email address: [google-cloud-platform-team@osinfra.io](mailto:google-cloud-platform-team@osinfra.io)
+- Google Chat: [Platform - Google Cloud Landing Zone](https://chat.google.com/room/AAAAYvP1tRg?cls=4)
+- Email address: [platform-google-cloud-landing-zone@osinfra.io](mailto:platform-google-cloud-landing-zone@osinfra.io)
 - Phone number:
 - Office hours (EST): `Weekdays 5:00 PM - 10:00 PM` `Weekends 8:00 AM - 5:00 PM`
 
