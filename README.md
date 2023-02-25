@@ -4,10 +4,6 @@
 
 [![Dependabot](https://github.com/osinfra-io/google-cloud-terraform-backend/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/google-cloud-terraform-backend/actions/workflows/dependabot.yml)
 
-**[Bridgecrew](https://www.bridgecrew.cloud/projects?types=Passed&repository=osinfra-io%2Fgoogle-cloud-terraform-backend&branch=main):**
-
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/google-cloud-terraform-backend/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fgoogle-cloud-terraform-backend&benchmark=INFRASTRUCTURE+SECURITY) [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/osinfra-io/google-cloud-terraform-backend/cis_gcp)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=osinfra-io%2Fgoogle-cloud-terraform-backend&benchmark=CIS+GCP+V1.1)
-
 **[Infracost](https://www.infracost.io):**
 
 [![infracost](https://img.shields.io/endpoint?label=Monthly%20Cost&url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/9c3ee651-0722-41fc-8486-1a44637bd381/branch/af4debc9-dbda-4648-97ba-42a664cd3856)](https://dashboard.infracost.io/org/osinfra-io/repos/9c3ee651-0722-41fc-8486-1a44637bd381)
