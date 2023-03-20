@@ -27,10 +27,12 @@ terraform {
 # - cloudresourcemanager.googleapis.com
 # - cloudidentity.googleapis.com
 
-provider "google" {
-  billing_project       = var.billing_project
-  user_project_override = true
-}
+# This is only needed during bootstrapping.
+
+# provider "google" {
+#   billing_project       = var.billing_project
+#   user_project_override = true
+# }
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
