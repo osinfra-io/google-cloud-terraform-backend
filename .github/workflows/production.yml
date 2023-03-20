@@ -26,7 +26,7 @@ jobs:
       github_environment: "Production Infrastructure: Global"
       service_account: plt-lz-identity-github@ptl-lz-terraform-tf62-prod.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/production.tfvars
-      terraform_state_bucket: plt-lz-identity-e194-prod
+      terraform_state_bucket: plt-lz-backend-e194-prod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-production
       working_directory: global/infra

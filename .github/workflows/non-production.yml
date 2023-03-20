@@ -21,9 +21,9 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Non-Production Infrastructure: Global"
-      service_account: plt-lz-identity-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/non-production.tfvars
-      terraform_state_bucket: plt-lz-identity-3bfe-nonprod
+      terraform_state_bucket: plt-lz-backend-3bfe-nonprod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-non-production
       working_directory: global/infra

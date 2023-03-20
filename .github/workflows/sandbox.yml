@@ -23,9 +23,9 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Sandbox Infrastructure: Global"
-      service_account: plt-lz-identity-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-lz-identity-2c8b-sb
+      terraform_state_bucket: plt-lz-backend-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: global-sandbox
       working_directory: global/infra
