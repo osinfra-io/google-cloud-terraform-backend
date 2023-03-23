@@ -101,7 +101,18 @@ resource "google_cloud_identity_group_membership" "github_actions" {
   ]
 }
 
-# Project Service Resource
+# Google Folder IAM Member
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
+
+resource "google_folder_iam_member" "github_actions" {
+  for_each = local.folder_ids
+
+  folder = "folders/${each.value.folder_id}"
+  member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
+  role   = "roles/resourcemanager.projectCreator"
+}
+
+# Google Project Service Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 
 # Any API that is going to be used by the platforms must be enabled here.
