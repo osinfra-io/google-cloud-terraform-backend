@@ -83,8 +83,6 @@ locals {
     "serviceusage.googleapis.com"
   ])
 
-
-
   # Flatten Function
   # https://developer.hashicorp.com/terraform/language/functions/flatten
 

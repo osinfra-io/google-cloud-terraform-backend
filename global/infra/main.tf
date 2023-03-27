@@ -27,10 +27,12 @@ terraform {
 # - cloudresourcemanager.googleapis.com
 # - cloudidentity.googleapis.com
 
-provider "google" {
-  billing_project       = var.billing_project
-  user_project_override = true
-}
+# This is only needed during bootstrapping.
+
+# provider "google" {
+#   billing_project       = var.billing_project
+#   user_project_override = true
+# }
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
@@ -110,7 +112,7 @@ resource "google_folder_iam_member" "github_actions" {
   role   = "roles/resourcemanager.projectCreator"
 }
 
-# Project Service Resource
+# Google Project Service Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
 
 # Any API that is going to be used by the platforms must be enabled here.
