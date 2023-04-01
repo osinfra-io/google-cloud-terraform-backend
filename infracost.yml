@@ -10,7 +10,7 @@ projects:
       - tfvars/sandbox.tfvars
     usage_file: global/infra/infracost/sandbox.yml
 
-  - name: "google-cloud-terraform-backend - Nonprod: Global Infrastructure"
+  - name: "google-cloud-terraform-backend - Non-Production Infrastructure: Global"
     path: global/infra
     terraform_var_files:
       - tfvars/non-production.tfvars
