@@ -45,8 +45,11 @@ locals {
     "plt-lz-testing" = {
       folder_ids = var.environment == "sb" ? [
         "1069400145815"
-      ] : []
-
+      ] : var.environment == "prod" ? [
+        "642644757390"
+        ] : [
+        "1094321749831"
+      ]
       github_repositories = [
         "github-terraform-gcp-called-workflows",
         "google-cloud-kitchen-terraform",
