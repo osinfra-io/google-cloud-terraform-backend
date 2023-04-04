@@ -45,7 +45,7 @@ locals {
     "plt-lz-testing" = {
       folder_ids = var.environment == "sb" ? [
         "1069400145815"
-      ] : var.environment == "prod" ? [
+        ] : var.environment == "prod" ? [
         "642644757390"
         ] : [
         "1094321749831"
