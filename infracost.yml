@@ -4,7 +4,7 @@
 version: 0.1
 
 projects:
-  - name: "google-cloud-terraform-backend - Sandbox: Global Infrastructure"
+  - name: "google-cloud-terraform-backend - Sandbox Infrastructure: Global"
     path: global/infra
     terraform_var_files:
       - tfvars/sandbox.tfvars
@@ -16,7 +16,7 @@ projects:
       - tfvars/non-production.tfvars
     usage_file: global/infra/infracost/non-production.yml
 
-  - name: "google-cloud-terraform-backend - Production: Global Infrastructure"
+  - name: "google-cloud-terraform-backend - Production Infrastructure: Global"
     path: global/infra
     terraform_var_files:
       - tfvars/production.tfvars

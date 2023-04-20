@@ -76,16 +76,6 @@ locals {
     }
   }
 
-  project_services = toset([
-    "cloudbilling.googleapis.com",
-    "cloudidentity.googleapis.com",
-    "cloudresourcemanager.googleapis.com",
-    "iam.googleapis.com",
-    "iamcredentials.googleapis.com",
-    "logging.googleapis.com",
-    "serviceusage.googleapis.com"
-  ])
-
   # Flatten Function
   # https://developer.hashicorp.com/terraform/language/functions/flatten
 

@@ -49,14 +49,14 @@ This repository builds the Terraform backend for state management. Terraform use
 
 Contact exclusively via:
 
-- Google Chat: [Platform - Google Cloud Landing Zone](https://chat.google.com/room/AAAAYvP1tRg?cls=4)
+- Discord: [Platform - Google Cloud Landing Zone](https://discord.gg/YPg4AmMDvF)
 - Phone number:
 
 #### To ask for support or provide feedback
 
 Contact via any of these:
 
-- Google Chat: [Platform - Google Cloud Landing Zone](https://chat.google.com/room/AAAAYvP1tRg?cls=4)
+- Discord: [Platform - Google Cloud Landing Zone](https://discord.gg/YPg4AmMDvF)
 - Email address: [platform-google-cloud-landing-zone@osinfra.io](mailto:platform-google-cloud-landing-zone@osinfra.io)
 - Phone number:
 - Office hours (EST): `Weekdays 5:00 PM - 10:00 PM` `Weekends 8:00 AM - 5:00 PM`
