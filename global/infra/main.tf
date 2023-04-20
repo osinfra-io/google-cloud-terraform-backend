@@ -38,7 +38,7 @@ terraform {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project"
+  source = "github.com/osinfra-io/terraform-google-project?ref=v0.1.1"
 
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
@@ -54,6 +54,15 @@ module "project" {
   }
 
   prefix = "ptl-lz"
+
+  services = [
+    "cloudbilling.googleapis.com",
+    "cloudidentity.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "iam.googleapis.com",
+    "iamcredentials.googleapis.com",
+    "serviceusage.googleapis.com"
+  ]
 }
 
 # Google Storage Bucket Module (osinfra.io)
@@ -97,7 +106,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
   }
 
   depends_on = [
-    google_project_service.this
+    module.project
   ]
 }
 
@@ -111,21 +120,6 @@ resource "google_folder_iam_member" "github_actions" {
   member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
   role   = "roles/resourcemanager.projectCreator"
 }
-
-# Google Project Service Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
-
-# Any API that is going to be used by the platforms must be enabled here.
-
-resource "google_project_service" "this" {
-  for_each = local.project_services
-
-  project = module.project.project_id
-  service = each.key
-
-  disable_on_destroy = false
-}
-
 
 # Google Service Account Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account

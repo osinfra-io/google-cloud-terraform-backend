@@ -19,7 +19,7 @@ jobs:
   global_infra:
     name: "Global"
     uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.1
-    if: ${{ github.user != 'dependabot[bot]' }}
+    if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Sandbox Infrastructure: Global"
@@ -32,4 +32,4 @@ jobs:
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      terraform_plan_secret_args: -var="billing_account=${{ secrets.BILLING_ACCOUNT }}"
+      terraform_plan_secret_args: -var=billing_account=${{ secrets.BILLING_ACCOUNT }}

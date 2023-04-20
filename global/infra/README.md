@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.58.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.59.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | n/a |
+| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project | v0.1.1 |
 | <a name="module_terraform_state_storage_bucket"></a> [terraform\_state\_storage\_bucket](#module\_terraform\_state\_storage\_bucket) | github.com/osinfra-io/terraform-google-storage-bucket | n/a |
 
 ## Resources
@@ -25,7 +25,6 @@ No requirements.
 |------|------|
 | [google_cloud_identity_group_membership.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) | resource |
 | [google_folder_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/folder_iam_member) | resource |
-| [google_project_service.this](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_service_account.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
 | [google_service_account_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
 | [google_storage_bucket_iam_member.github_actions](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam_member) | resource |

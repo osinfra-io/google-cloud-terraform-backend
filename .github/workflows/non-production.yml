@@ -18,6 +18,7 @@ jobs:
   global_infra:
     name: "Global"
     uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.1
+    if: github.actor == 'osinfra-io'
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Non-Production Infrastructure: Global"
@@ -30,4 +31,4 @@ jobs:
       workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      terraform_plan_secret_args: -var="billing_account=${{ secrets.BILLING_ACCOUNT }}"
+      terraform_plan_secret_args: -var=billing_account=${{ secrets.BILLING_ACCOUNT }}
