@@ -17,10 +17,11 @@ permissions:
 jobs:
   global_infra:
     name: "Global"
-    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.1
+    uses: osinfra-io/github-terraform-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.4
     if: github.actor == 'osinfra-io'
     with:
       checkout_ref: ${{ github.ref }}
+      environment: non-production
       github_environment: "Non-Production Infrastructure: Global"
       service_account: plt-lz-backend-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/non-production.tfvars
@@ -31,4 +32,5 @@ jobs:
       workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      infracost_api_key: ${{ secrets.INFRACOST_API_KEY }}
       terraform_plan_secret_args: -var=billing_account=${{ secrets.BILLING_ACCOUNT }}
