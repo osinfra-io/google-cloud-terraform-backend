@@ -69,7 +69,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-storage-bucket
 
 module "terraform_state_storage_bucket" {
-  source   = "github.com/osinfra-io/terraform-google-storage-bucket"
+  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.0"
   for_each = local.folders
 
   labels = {
