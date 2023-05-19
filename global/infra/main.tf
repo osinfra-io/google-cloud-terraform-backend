@@ -110,17 +110,6 @@ resource "google_cloud_identity_group_membership" "github_actions" {
   ]
 }
 
-# Google Folder IAM Member
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
-
-resource "google_folder_iam_member" "github_actions" {
-  for_each = local.folder_ids
-
-  folder = "folders/${each.value.folder_id}"
-  member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
-  role   = "roles/resourcemanager.projectCreator"
-}
-
 # Google Service Account Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
 
