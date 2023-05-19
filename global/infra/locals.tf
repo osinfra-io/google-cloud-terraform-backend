@@ -5,20 +5,12 @@ locals {
 
   # Please keep this map in alphabetical order.
 
-  folders = {
+  service_accounts = {
     "plt-lz-backend" = {
-      folder_ids = var.environment == "sb" ? [
-        "515753002772"
-        ] : var.environment == "prod" ? [
-        "131486843041"
-        ] : [
-        "574432336767"
-      ]
       github_repositories = ["google-cloud-terraform-backend"]
     }
 
     "plt-gh-organization" = {
-      folder_ids          = []
       github_repositories = ["github-organization-management"]
     }
 
@@ -27,29 +19,14 @@ locals {
       # The service account used to create the folder hierarchy will need to be added
       # to the Groups Admins role in the Google Workspace Admin Console.
 
-      folder_ids          = []
       github_repositories = ["google-cloud-hierarchy"]
     }
 
     "plt-lz-identity" = {
-      folder_ids = var.environment == "sb" ? [
-        "267179923152"
-        ] : var.environment == "prod" ? [
-        "679274494921"
-        ] : [
-        "8288220956"
-      ]
       github_repositories = ["google-cloud-workload-identity"]
     }
 
     "plt-lz-testing" = {
-      folder_ids = var.environment == "sb" ? [
-        "1069400145815"
-        ] : var.environment == "prod" ? [
-        "642644757390"
-        ] : [
-        "1094321749831"
-      ]
       github_repositories = [
         "github-terraform-gcp-called-workflows",
         "google-cloud-kitchen-terraform",
@@ -65,13 +42,6 @@ locals {
     }
 
     "plt-lz-audit" = {
-      folder_ids = var.environment == "sb" ? [
-        "390812006260"
-        ] : var.environment == "prod" ? [
-        "606239917687"
-        ] : [
-        "988946273293"
-      ]
       github_repositories = ["google-cloud-audit-logging"]
     }
   }
@@ -82,31 +52,16 @@ locals {
   # flatten ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.
 
+  github_repositories = { for service_account in flatten([
 
-  folder_ids = { for folder_id in flatten([
-
-    # This will iterate over the folders map and return a list of maps
-    # based of the folder_ids that includes the name key.
-
-    for folder_key, name in local.folders : [
-      for folder_id in name.folder_ids : {
-        folder_id = folder_id
-        name      = folder_key
-      }
-    ]
-  ]) : folder_id.folder_id => folder_id }
-
-
-  github_repositories = { for folder_id in flatten([
-
-    # This will iterate over the folders map and return a list of maps
+    # This will iterate over the service_accounts map and return a list of maps
     # based of the github_repositories that includes the name key.
 
-    for folder_key, name in local.folders : [
+    for service_account_key, name in local.service_accounts : [
       for repository in name.github_repositories : {
-        name       = folder_key
+        name       = service_account_key
         repository = repository
       }
     ]
-  ]) : folder_id.repository => folder_id }
+  ]) : service_account.repository => service_account }
 }

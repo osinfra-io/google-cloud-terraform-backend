@@ -70,7 +70,7 @@ module "project" {
 
 module "terraform_state_storage_bucket" {
   source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.0"
-  for_each = local.folders
+  for_each = local.service_accounts
 
   labels = {
     "cost-center" = "x001"
@@ -88,7 +88,7 @@ module "terraform_state_storage_bucket" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
 resource "google_cloud_identity_group_membership" "github_actions" {
-  for_each = local.folders
+  for_each = local.service_accounts
 
   # Use the following gcloud command to figure out the group_id
   # gcloud identity groups search --organization=osinfra.io --labels="cloudidentity.googleapis.com/groups.discussion_forum"
@@ -110,22 +110,11 @@ resource "google_cloud_identity_group_membership" "github_actions" {
   ]
 }
 
-# Google Folder IAM Member
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_member
-
-resource "google_folder_iam_member" "github_actions" {
-  for_each = local.folder_ids
-
-  folder = "folders/${each.value.folder_id}"
-  member = "serviceAccount:${google_service_account.github_actions[each.value.name].email}"
-  role   = "roles/resourcemanager.projectCreator"
-}
-
 # Google Service Account Resource
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
 
 resource "google_service_account" "github_actions" {
-  for_each = local.folders
+  for_each = local.service_accounts
 
   account_id   = "${each.key}-github"
   display_name = "Service account for GitHub Actions"
@@ -147,7 +136,7 @@ resource "google_service_account_iam_member" "github_actions" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member
 
 resource "google_storage_bucket_iam_member" "github_actions" {
-  for_each = local.folders
+  for_each = local.service_accounts
 
   bucket = module.terraform_state_storage_bucket[each.key].name
   member = "serviceAccount:${google_service_account.github_actions[each.key].email}"
