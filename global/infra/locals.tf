@@ -5,7 +5,7 @@ locals {
 
   # Please keep this map in alphabetical order.
 
-  folders = {
+  service_accounts = {
     "plt-lz-backend" = {
       github_repositories = ["google-cloud-terraform-backend"]
     }
@@ -52,16 +52,16 @@ locals {
   # flatten ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.
 
-  github_repositories = { for folder_id in flatten([
+  github_repositories = { for service_account in flatten([
 
     # This will iterate over the folders map and return a list of maps
     # based of the github_repositories that includes the name key.
 
-    for folder_key, name in local.folders : [
+    for service_account_key, name in local.service_accounts : [
       for repository in name.github_repositories : {
-        name       = folder_key
+        name       = service_account_key
         repository = repository
       }
     ]
-  ]) : folder_id.repository => folder_id }
+  ]) : service_account.repository => service_account }
 }
