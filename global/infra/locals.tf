@@ -54,7 +54,7 @@ locals {
 
   github_repositories = { for service_account in flatten([
 
-    # This will iterate over the folders map and return a list of maps
+    # This will iterate over the service_accounts map and return a list of maps
     # based of the github_repositories that includes the name key.
 
     for service_account_key, name in local.service_accounts : [
