@@ -6,12 +6,16 @@ locals {
   # Please keep this map in alphabetical order.
 
   service_accounts = {
-    "plt-lz-backend" = {
-      github_repositories = ["google-cloud-terraform-backend"]
-    }
-
     "plt-gh-organization" = {
       github_repositories = ["github-organization-management"]
+    }
+
+    "plt-lz-audit" = {
+      github_repositories = ["google-cloud-audit-logging"]
+    }
+
+    "plt-lz-backend" = {
+      github_repositories = ["google-cloud-terraform-backend"]
     }
 
     "plt-lz-hierarchy" = {
@@ -24,6 +28,10 @@ locals {
 
     "plt-lz-identity" = {
       github_repositories = ["google-cloud-workload-identity"]
+    }
+
+    "plt-lz-services" = {
+      github_repositories = ["google-cloud-services"]
     }
 
     "plt-lz-testing" = {
@@ -39,10 +47,6 @@ locals {
         "terraform-google-subnet",
         "terraform-google-vpc"
       ]
-    }
-
-    "plt-lz-audit" = {
-      github_repositories = ["google-cloud-audit-logging"]
     }
   }
 
