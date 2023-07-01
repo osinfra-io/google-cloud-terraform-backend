@@ -16,22 +16,16 @@ This repository builds the Terraform backend for state management. Terraform use
 
 >Simple but comprehensive information for the platform provides a single point of entry for anyone wanting to know more about the services, report an issue or find out the current status, roadmap, and so on. - [Team Topologies: Thin Platform Template](https://github.com/TeamTopologies/Thin-Platform-template)
 
-### Platform Information
+### 🏭 Platform Information
 
-- Documentation: [docs.osinfra.io](https://docs.osinfra.io/google-cloud-platform/landing-zone)
+- Documentation: [docs.osinfra.io](https://docs.osinfra.io/product-guides/google-cloud-platform/landing-zone)
 - Live status page:
-
-### Platform Dependencies
-
-- [google-cloud-hierarchy](https://github.com/osinfra-io/google-cloud-hierarchy): Metaphorically speaking, the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) resembles the file system found in traditional operating systems as a way of organizing and managing entities hierarchically.
-- [google-cloud-audit-logging](https://github.com/osinfra-io/google-cloud-audit-logging): Google Cloud Platform (GCP) services write audit logs that record administrative activities and accesses within your Google Cloud Platform (GCP) resources. [Audit logs](https://cloud.google.com/logging/docs/audit) help you answer "who did what, where, and when?" within your Google Cloud resources with the same level of transparency as in on-premises environments. Enabling audit logs helps your security, auditing, and compliance entities monitor Google Cloud data and systems for possible vulnerabilities or external data misuse.
-- [google-cloud-workload-identity](https://github.com/osinfra-io/google-cloud-workload-identity): With [workload identity federation](https://cloud.google.com/iam/docs/workload-identity-federation), you can use Identity and Access Management (IAM) to grant external identities IAM roles, including the ability to impersonate service accounts. This lets you access resources directly, using a [short-lived access token](https://cloud.google.com/iam/docs/create-short-lived-credentials-direct), and eliminates the maintenance and security burden associated with service account keys.
-
-### Service Interfaces
+- 
+### 🔩 Service Interfaces
 
 - [Add or update Terraform backend](https://github.com/osinfra-io/google-cloud-terraform-backend/issues/new?assignees=&labels=enhancement%2Cgood+first+issue&template=add-update-backend.yml&title=Add+or+update+Terraform+backend)
 
-### Response Times
+### 🕙 Response Times
 
 - Responsible team: [Platform - Google Cloud Landing Zone](https://github.com/orgs/osinfra-io/teams/google-cloud-platform-team)
 - Response time for incidents: `60 minutes`
@@ -39,9 +33,9 @@ This repository builds the Terraform backend for state management. Terraform use
 - Response time for support:  `60 minutes`
 - Response time for feedback: `30 minutes`
 
-### Roadmap
+### 🗺️ Roadmap
 
-- Link to roadmap: [GitHub Project](https://github.com/orgs/osinfra-io/projects/1/views/7)
+- Link to the roadmap: [GitHub Project](https://github.com/orgs/osinfra-io/projects/1/views/7)
 
 ### Communication Channels
 
