@@ -48,9 +48,11 @@ module "project" {
   folder_id                       = var.folder_id
 
   labels = {
-    "environment" = var.environment
-    "description" = "terraform"
-    "platform"    = "google-cloud-landing-zone"
+    env         = var.environment
+    cost-center = "x001"
+    module      = "google-cloud-terraform-backend"
+    platform    = "google-cloud-landing-zone"
+    team        = "platform-google-cloud-landing-zone"
   }
 
   prefix = "ptl-lz"
@@ -73,10 +75,11 @@ module "terraform_state_storage_bucket" {
   for_each = local.service_accounts
 
   labels = {
-    "cost-center" = "x001"
-    "environment" = var.environment
-    "description" = "terraform"
-    "platform"    = "google-cloud-landing-zone"
+    env         = var.environment
+    cost-center = "x001"
+    module      = "google-cloud-terraform-backend"
+    platform    = "google-cloud-landing-zone"
+    team        = "platform-google-cloud-landing-zone"
   }
 
   location = "us"

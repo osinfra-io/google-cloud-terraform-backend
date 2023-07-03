@@ -30,8 +30,8 @@ locals {
       github_repositories = ["google-cloud-workload-identity"]
     }
 
-    "plt-lz-services" = {
-      github_repositories = ["google-cloud-services"]
+    "plt-lz-networking" = {
+      github_repositories = ["google-cloud-networking"]
     }
 
     "plt-lz-testing" = {
