@@ -107,7 +107,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
   roles { name = "MEMBER" }
 
   dynamic "roles" {
-    for_each = each.value.service_account == "plt-lz-backend" ? [1] : []
+    for_each = each.key == "plt-lz-backend" ? [1] : []
 
     content {
       name = "MANAGER"
