@@ -104,8 +104,14 @@ resource "google_cloud_identity_group_membership" "github_actions" {
     id = google_service_account.github_actions[each.key].email
   }
 
-  roles {
-    name = "MEMBER"
+  roles { name = "MEMBER" }
+
+  dynamic "roles" {
+    for_each = each.value.billing_user_group_manager ? [1] : []
+
+    content {
+      name = "MANAGER"
+    }
   }
 
   depends_on = [

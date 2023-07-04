@@ -15,7 +15,8 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_repositories = ["google-cloud-terraform-backend"]
+      github_repositories        = ["google-cloud-terraform-backend"]
+      billing_user_group_manager = true
     }
 
     "plt-lz-hierarchy" = {
