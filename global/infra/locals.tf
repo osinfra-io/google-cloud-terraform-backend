@@ -15,7 +15,8 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_repositories = ["google-cloud-terraform-backend"]
+      github_repositories        = ["google-cloud-terraform-backend"]
+      billing_user_group_manager = true
     }
 
     "plt-lz-hierarchy" = {
@@ -30,8 +31,8 @@ locals {
       github_repositories = ["google-cloud-workload-identity"]
     }
 
-    "plt-lz-services" = {
-      github_repositories = ["google-cloud-services"]
+    "plt-lz-networking" = {
+      github_repositories = ["google-cloud-networking"]
     }
 
     "plt-lz-testing" = {

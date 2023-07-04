@@ -48,9 +48,10 @@ module "project" {
   folder_id                       = var.folder_id
 
   labels = {
-    "environment" = var.environment
-    "description" = "terraform"
-    "platform"    = "google-cloud-landing-zone"
+    env      = var.environment
+    module   = "google-cloud-terraform-backend"
+    platform = "google-cloud-landing-zone"
+    team     = "platform-google-cloud-landing-zone"
   }
 
   prefix = "ptl-lz"
@@ -73,10 +74,11 @@ module "terraform_state_storage_bucket" {
   for_each = local.service_accounts
 
   labels = {
-    "cost-center" = "x001"
-    "environment" = var.environment
-    "description" = "terraform"
-    "platform"    = "google-cloud-landing-zone"
+    cost-center = "x001"
+    env         = var.environment
+    module      = "google-cloud-terraform-backend"
+    platform    = "google-cloud-landing-zone"
+    team        = "platform-google-cloud-landing-zone"
   }
 
   location = "us"
@@ -101,8 +103,14 @@ resource "google_cloud_identity_group_membership" "github_actions" {
     id = google_service_account.github_actions[each.key].email
   }
 
-  roles {
-    name = "MEMBER"
+  roles { name = "MEMBER" }
+
+  dynamic "roles" {
+    for_each = each.key == "plt-lz-backend" ? [1] : []
+
+    content {
+      name = "MANAGER"
+    }
   }
 
   depends_on = [
