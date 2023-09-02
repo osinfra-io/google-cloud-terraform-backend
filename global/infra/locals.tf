@@ -23,7 +23,8 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_ref                 = local.ptl_github_ref
+      # github_ref                 = local.ptl_github_ref
+      github_ref                 = var.environment == "sb" ? "refs/security-hardening" : null
       github_repositories        = ["google-cloud-terraform-backend"]
       billing_user_group_manager = true
     }
