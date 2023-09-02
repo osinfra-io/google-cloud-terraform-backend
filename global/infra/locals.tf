@@ -15,7 +15,7 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_ref                 = var.environment == "sb" ? null : "refs/heads/main"
+      github_ref                 = var.environment == "prod" ? null : "refs/heads/main"
       github_repositories        = ["google-cloud-terraform-backend"]
       billing_user_group_manager = true
     }
