@@ -62,6 +62,7 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "iam.googleapis.com",
     "iamcredentials.googleapis.com",
+    "pubsub.googleapis.com",
     "serviceusage.googleapis.com"
   ]
 }
