@@ -135,8 +135,7 @@ resource "google_service_account" "github_actions" {
 resource "google_service_account_iam_member" "github_actions" {
   for_each = local.github_repositories
 
-  #member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repository}/attribute.ref/${each.value.ref}}"
-  member             = lookup(each.value, "github_ref", null) == null ? "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repository}" : "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repository}/attribute.ref/${each.value.ref}"
+  member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_name}/attribute.repository/osinfra-io/${each.value.repository}/attribute.ref/${each.value.ref}}"
   role               = "roles/iam.workloadIdentityUser"
   service_account_id = google_service_account.github_actions[each.value.name].id
 }
