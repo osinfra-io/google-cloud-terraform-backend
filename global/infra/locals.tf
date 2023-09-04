@@ -15,7 +15,6 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_ref                 = var.environment == "sb" ? null : "refs/heads/main"
       github_repositories        = ["google-cloud-terraform-backend"]
       billing_user_group_manager = true
     }
@@ -67,7 +66,6 @@ locals {
       for repository in name.github_repositories : {
         name       = service_account_key
         repository = repository
-        ref        = lookup(local.service_accounts[service_account_key], "github_ref", null)
       }
     ]
   ]) : service_account.repository => service_account }
