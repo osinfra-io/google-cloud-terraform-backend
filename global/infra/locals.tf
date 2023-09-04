@@ -39,6 +39,7 @@ locals {
       github_repositories = [
         "github-terraform-gcp-called-workflows",
         "google-cloud-kitchen-terraform",
+        "terraform-datadog-google-integration",
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
         "terraform-google-cloud-sql",
