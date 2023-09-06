@@ -5,6 +5,13 @@ terraform {
 
   required_providers {
 
+    # Datadog Provider
+    # https://registry.terraform.io/providers/DataDog/datadog/latest/docs
+
+    datadog = {
+      source = "datadog/datadog"
+    }
+
     # Google Cloud Platform Provider
     # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 
@@ -21,6 +28,11 @@ terraform {
   }
 }
 
+provider "datadog" {
+  api_key = var.datadog_api_key
+  app_key = var.datadog_app_key
+}
+
 # The google_cloud_identity_group resource requires this if you are using User ADCs (Application Default Credentials).
 # Your account must have the serviceusage.services.use permission on the billing_project you defined.
 # The following APIs must be enabled on the billing_project:
@@ -33,6 +45,17 @@ terraform {
 #   billing_project       = var.billing_project
 #   user_project_override = true
 # }
+
+# Datadog Google Cloud Platform Integration Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-datadog-google-integration
+
+module "datadog" {
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.0"
+
+  api_key         = var.datadog_api_key
+  is_cspm_enabled = true
+  project         = module.project.project_id
+}
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
