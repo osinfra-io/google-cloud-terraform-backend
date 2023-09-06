@@ -4,10 +4,6 @@
 # See https://infracost.io/usage-file/ for docs
 version: 0.1
 resource_type_default_usage:
-  ##
-  ## The following usage values apply to each resource of the given type, which is useful when you want to define defaults.
-  ## All values are commented-out, you can uncomment resource types and customize as needed.
-  ##
   google_logging_project_sink:
     monthly_logging_data_gb: 10.0 # Monthly logging data in GB.
   google_storage_bucket:
@@ -21,14 +17,32 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
+  ##
+  ## The following usage values apply to each resource of the given type, which is useful when you want to define defaults.
+  ## All values are commented-out, you can uncomment resource types and customize as needed.
+  ##
+  google_pubsub_subscription:
+    monthly_message_data_tb: 0.1 # Monthly amount of message data pulled by the subscription in TB.
+    storage_gb: 1.0 # Storage for retaining acknowledged messages in GB.
+    snapshot_storage_gb: 0.0 # Snapshot storage for unacknowledged messages in GB.
+  google_pubsub_topic:
+    monthly_message_data_tb: 0.1 # Monthly amount of message data published to the topic in TB.
 # resource_usage:
   ##
   ## The following usage values apply to individual resources and override any value defined in the resource_type_default_usage section.
   ## All values are commented-out, you can uncomment resources and customize as needed.
   ##
+  # module.datadog.google_logging_project_sink.this:
+    # monthly_logging_data_gb: 0.0 # Monthly logging data in GB.
+  # module.datadog.google_pubsub_subscription.this:
+    # monthly_message_data_tb: 0.0 # Monthly amount of message data pulled by the subscription in TB.
+    # storage_gb: 0.0 # Storage for retaining acknowledged messages in GB.
+    # snapshot_storage_gb: 0.0 # Snapshot storage for unacknowledged messages in GB.
+  # module.datadog.google_pubsub_topic.this:
+    # monthly_message_data_tb: 0.0 # Monthly amount of message data published to the topic in TB.
   # module.project.google_logging_project_sink.cis_2_2_logging_sink:
     # monthly_logging_data_gb: 0.0 # Monthly logging data in GB.
-  # module.storage_bucket["logging"].google_storage_bucket.this:
+  # module.terraform_state_storage_bucket["plt-gh-organization"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
     # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
@@ -39,7 +53,7 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
-  # module.storage_bucket["observability"].google_storage_bucket.this:
+  # module.terraform_state_storage_bucket["plt-lz-audit"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
     # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
@@ -50,7 +64,7 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
-  # module.storage_bucket["services"].google_storage_bucket.this:
+  # module.terraform_state_storage_bucket["plt-lz-backend"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
     # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
@@ -61,7 +75,7 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
-  # module.storage_bucket["terraform"].google_storage_bucket.this:
+  # module.terraform_state_storage_bucket["plt-lz-hierarchy"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
     # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
@@ -72,7 +86,29 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
-  # module.storage_bucket["wif"].google_storage_bucket.this:
+  # module.terraform_state_storage_bucket["plt-lz-identity"].google_storage_bucket.this:
+    # storage_gb: 0.0 # Total size of bucket in GB.
+    # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
+    # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
+    # monthly_data_retrieval_gb: 0.0 # Monthly amount of data retrieved in GB.
+    # monthly_egress_data_transfer_gb:
+      # same_continent: 0.0 # Same continent.
+      # worldwide: 0.0 # Worldwide excluding Asia, Australia.
+      # asia: 0.0 # Asia excluding China, but including Hong Kong.
+      # china: 0.0 # China excluding Hong Kong.
+      # australia: 0.0 # Australia.
+  # module.terraform_state_storage_bucket["plt-lz-networking"].google_storage_bucket.this:
+    # storage_gb: 0.0 # Total size of bucket in GB.
+    # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
+    # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
+    # monthly_data_retrieval_gb: 0.0 # Monthly amount of data retrieved in GB.
+    # monthly_egress_data_transfer_gb:
+      # same_continent: 0.0 # Same continent.
+      # worldwide: 0.0 # Worldwide excluding Asia, Australia.
+      # asia: 0.0 # Asia excluding China, but including Hong Kong.
+      # china: 0.0 # China excluding Hong Kong.
+      # australia: 0.0 # Australia.
+  # module.terraform_state_storage_bucket["plt-lz-testing"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
     # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).

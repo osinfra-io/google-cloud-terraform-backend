@@ -26,6 +26,18 @@ variable "cis_2_2_logging_sink_project_id" {
   type        = string
 }
 
+variable "datadog_api_key" {
+  description = "Datadog API key"
+  type        = string
+  sensitive   = true
+}
+
+variable "datadog_app_key" {
+  description = "Datadog APP key"
+  type        = string
+  sensitive   = true
+}
+
 variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
