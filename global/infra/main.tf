@@ -80,11 +80,14 @@ module "project" {
   prefix = "ptl-lz"
 
   services = [
+    "cloudasset.googleapis.com",
     "cloudbilling.googleapis.com",
     "cloudidentity.googleapis.com",
     "cloudresourcemanager.googleapis.com",
+    "compute.googleapis.com",
     "iam.googleapis.com",
     "iamcredentials.googleapis.com",
+    "monitoring.googleapis.com",
     "pubsub.googleapis.com",
     "serviceusage.googleapis.com"
   ]
