@@ -43,7 +43,7 @@ locals {
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
         "terraform-google-cloud-sql",
-        "terraform-google-kubernetes-engine-autopilot",
+        "terraform-google-kubernetes-engine",
         "terraform-google-project",
         "terraform-google-storage-bucket",
         "terraform-google-subnet",
