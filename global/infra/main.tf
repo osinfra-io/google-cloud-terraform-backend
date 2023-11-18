@@ -92,7 +92,9 @@ module "project" {
     "iamcredentials.googleapis.com",
     "monitoring.googleapis.com",
     "pubsub.googleapis.com",
-    "serviceusage.googleapis.com"
+    "servicenetworking.googleapis.com",
+    "serviceusage.googleapis.com",
+    "sqladmin.googleapis.com"
   ]
 }
 
