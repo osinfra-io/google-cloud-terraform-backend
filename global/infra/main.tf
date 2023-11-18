@@ -93,7 +93,8 @@ module "project" {
     "monitoring.googleapis.com",
     "pubsub.googleapis.com",
     "servicenetworking.googleapis.com",
-    "serviceusage.googleapis.com"
+    "serviceusage.googleapis.com",
+    "sqladmin.googleapis.com"
   ]
 }
 
