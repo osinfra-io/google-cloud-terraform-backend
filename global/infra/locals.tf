@@ -10,6 +10,10 @@ locals {
       github_repositories = ["github-organization-management"]
     }
 
+    "plt-k8s" = {
+      github_repositories = ["google-cloud-kubernetes"]
+    }
+
     "plt-lz-audit" = {
       github_repositories = ["google-cloud-audit-logging"]
     }
