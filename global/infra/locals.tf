@@ -6,6 +6,10 @@ locals {
   # Please keep this map in alphabetical order.
 
   service_accounts = {
+    "plt-backstage" = {
+      github_repositories = ["backstage"]
+    }
+
     "plt-gh-organization" = {
       github_repositories = ["github-organization-management"]
     }
