@@ -11,6 +11,15 @@ repos:
       - id: check-symlinks
       - id: no-commit-to-branch
 
+  - repo: local
+    hooks:
+      - id: infracost_generate_config
+        name: Infracost generate config
+        entry: bash -c 'infracost generate config --repo-path=. --template-path=infracost.yml.tmpl --out-file=infracost.yml'
+        language: system
+        files: ^infracost\.yml\.tmpl$
+        verbose: false
+
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.83.6
     hooks:
