@@ -105,7 +105,7 @@ module "terraform_state_storage_bucket" {
   source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.1"
   for_each = local.service_accounts
 
-  cost-center = "x001"
+  cost_center = "x001"
 
   labels = {
     env         = var.environment
