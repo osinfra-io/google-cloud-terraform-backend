@@ -105,12 +105,13 @@ module "terraform_state_storage_bucket" {
   source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.1"
   for_each = local.service_accounts
 
+  cost_center = "x001"
+
   labels = {
-    cost-center = "x001"
-    env         = var.environment
-    repository  = "google-cloud-terraform-backend"
-    platform    = "google-cloud-landing-zone"
-    team        = "platform-google-cloud-landing-zone"
+    env        = var.environment
+    repository = "google-cloud-terraform-backend"
+    platform   = "google-cloud-landing-zone"
+    team       = "platform-google-cloud-landing-zone"
   }
 
   location = "us"
