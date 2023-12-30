@@ -52,7 +52,6 @@ locals {
         "terraform-google-cloud-nat",
         "terraform-google-cloud-sql",
         "terraform-google-kubernetes-engine",
-        "terraform-google-kubernetes-engine-onboarding",
         "terraform-google-project",
         "terraform-google-storage-bucket",
         "terraform-google-subnet",
