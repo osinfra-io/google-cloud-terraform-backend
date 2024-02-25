@@ -9,14 +9,14 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.17.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project//global | v0.1.8 |
+| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project//global | v0.1.9 |
 | <a name="module_terraform_state_storage_bucket"></a> [terraform\_state\_storage\_bucket](#module\_terraform\_state\_storage\_bucket) | github.com/osinfra-io/terraform-google-storage-bucket | v0.1.1 |
 
 ## Resources
