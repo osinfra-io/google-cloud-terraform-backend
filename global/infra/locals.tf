@@ -43,6 +43,10 @@ locals {
       github_repositories = ["google-cloud-networking"]
     }
 
+    "plt-lz-services" = {
+      github_repositories = ["google-cloud-services"]
+    }
+
     "plt-lz-testing" = {
       github_repositories = [
         "github-terraform-gcp-called-workflows",

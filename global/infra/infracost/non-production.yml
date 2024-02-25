@@ -112,6 +112,17 @@ resource_type_default_usage:
       # asia: 0.0 # Asia excluding China, but including Hong Kong.
       # china: 0.0 # China excluding Hong Kong.
       # australia: 0.0 # Australia.
+  # module.terraform_state_storage_bucket["plt-lz-services"].google_storage_bucket.this:
+    # storage_gb: 0.0 # Total size of bucket in GB.
+    # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
+    # monthly_class_b_operations: 0 # Monthly number of class B operations (object gets, retrieve bucket/object metadata).
+    # monthly_data_retrieval_gb: 0.0 # Monthly amount of data retrieved in GB.
+    # monthly_egress_data_transfer_gb:
+      # same_continent: 0.0 # Same continent.
+      # worldwide: 0.0 # Worldwide excluding Asia, Australia.
+      # asia: 0.0 # Asia excluding China, but including Hong Kong.
+      # china: 0.0 # China excluding Hong Kong.
+      # australia: 0.0 # Australia.
   # module.terraform_state_storage_bucket["plt-lz-testing"].google_storage_bucket.this:
     # storage_gb: 0.0 # Total size of bucket in GB.
     # monthly_class_a_operations: 0 # Monthly number of class A operations (object adds, bucket/object list).
