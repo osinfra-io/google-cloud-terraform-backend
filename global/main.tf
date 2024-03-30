@@ -49,13 +49,16 @@ provider "datadog" {
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
-# module "datadog" {
-#   source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.0"
+module "datadog" {
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.4"
+  count  = var.enable_datadog ? 1 : 0
 
-#   api_key         = var.datadog_api_key
-#   is_cspm_enabled = true
-#   project         = module.project.project_id
-# }
+  api_key         = var.datadog_api_key
+  cost_center     = "x001"
+  is_cspm_enabled = true
+  labels          = local.labels
+  project         = module.project.project_id
+}
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
@@ -69,15 +72,8 @@ module "project" {
   description                     = "terraform"
   environment                     = var.environment
   folder_id                       = var.folder_id
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-terraform-backend"
-    platform   = "google-cloud-landing-zone"
-    team       = "platform-google-cloud-landing-zone"
-  }
-
-  prefix = "ptl-lz"
+  labels                          = local.labels
+  prefix                          = "ptl-lz"
 
   services = [
     "billingbudgets.googleapis.com",
@@ -106,17 +102,10 @@ module "terraform_state_storage_bucket" {
   for_each = local.service_accounts
 
   cost_center = "x001"
-
-  labels = {
-    env        = var.environment
-    repository = "google-cloud-terraform-backend"
-    platform   = "google-cloud-landing-zone"
-    team       = "platform-google-cloud-landing-zone"
-  }
-
-  location = "us"
-  name     = "${each.key}-${random_id.bucket.hex}-${var.environment}"
-  project  = module.project.project_id
+  labels      = local.labels
+  location    = "us"
+  name        = "${each.key}-${random_id.bucket.hex}-${var.environment}"
+  project     = module.project.project_id
 }
 
 # Google Identity Group Membership

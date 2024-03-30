@@ -2,8 +2,12 @@
 # https://www.terraform.io/language/values/locals
 
 locals {
-
-  # Please keep this map in alphabetical order.
+  labels = {
+    env        = var.environment
+    repository = "google-cloud-terraform-backend"
+    platform   = "google-cloud-landing-zone"
+    team       = "platform-google-cloud-landing-zone"
+  }
 
   service_accounts = {
     "plt-backstage" = {

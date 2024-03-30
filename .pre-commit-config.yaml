@@ -10,17 +10,8 @@ repos:
       - id: trailing-whitespace
       - id: check-symlinks
 
-  - repo: local
-    hooks:
-      - id: infracost_generate_config
-        name: Infracost generate config
-        entry: bash -c 'infracost generate config --repo-path=. --template-path=infracost.yml.tmpl --out-file=infracost.yml'
-        language: system
-        files: ^infracost\.yml\.tmpl$
-        verbose: false
-
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.88.0
+    rev: v1.88.4
     hooks:
       - id: terraform_fmt
 
@@ -37,8 +28,3 @@ repos:
           - --hook-config=--path-to-file=README.md
           - --hook-config=--add-to-exiting-file=true
           - --hook-config=--create-file-if-not-exist=false
-
-      - id: infracost_breakdown
-        args:
-          - --args=--config-file=infracost.yml
-          - --args=--sync-usage-file
