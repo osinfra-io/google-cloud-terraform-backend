@@ -3,10 +3,11 @@
 
 locals {
   labels = {
-    env        = var.environment
-    repository = "google-cloud-terraform-backend"
-    platform   = "google-cloud-landing-zone"
-    team       = "platform-google-cloud-landing-zone"
+    cost-center = "x001"
+    env         = var.environment
+    repository  = "google-cloud-terraform-backend"
+    platform    = "google-cloud-landing-zone"
+    team        = "platform-google-cloud-landing-zone"
   }
 
   service_accounts = {

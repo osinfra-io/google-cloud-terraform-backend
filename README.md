@@ -10,7 +10,7 @@
 
 💵 Monthly estimates based on Infracost baseline costs.
 
-## Repository Description
+## 📄 Repository Description
 
 This repository builds the Terraform backend for state management. Terraform uses persisted state data to keep track of the resources it manages. Most non-trivial Terraform configurations use a backend to store state remotely. This lets multiple people access the state data and work together on that collection of infrastructure resources. This repository aligns with our [Google Cloud landing zone platform](https://docs.osinfra.io/google-cloud-platform/landing-zone) design. A landing zone should be a prerequisite to deploying enterprise workloads in a cloud environment.
 
@@ -27,7 +27,7 @@ Our focus is on the core fundamental practice of platform engineering, Infrastru
 
 To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with Terraform documentation.
 
-See the documentation for setting up a local development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
+See the documentation for setting up a development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
 
 ### 🛠️ Tools
 
