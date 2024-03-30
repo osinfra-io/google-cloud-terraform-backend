@@ -23,6 +23,8 @@ repos:
           - --hook-config=--retry-once-with-cleanup=true
           - --tf-init-args=-upgrade
 
+      # Always run after terraform_validate
+
       - id: terraform_docs
         args:
           - --hook-config=--path-to-file=README.md

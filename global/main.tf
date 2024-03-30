@@ -50,11 +50,10 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.4"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.5"
   count  = var.enable_datadog ? 1 : 0
 
   api_key         = var.datadog_api_key
-  cost_center     = "x001"
   is_cspm_enabled = true
   labels          = local.labels
   project         = module.project.project_id
@@ -64,11 +63,10 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.9"
+  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.2.0"
 
   billing_account                 = var.billing_account
   cis_2_2_logging_sink_project_id = var.cis_2_2_logging_sink_project_id
-  cost_center                     = "x001"
   description                     = "terraform"
   environment                     = var.environment
   folder_id                       = var.folder_id
@@ -98,14 +96,13 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-storage-bucket
 
 module "terraform_state_storage_bucket" {
-  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.1"
+  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.2"
   for_each = local.service_accounts
 
-  cost_center = "x001"
-  labels      = local.labels
-  location    = "us"
-  name        = "${each.key}-${random_id.bucket.hex}-${var.environment}"
-  project     = module.project.project_id
+  labels   = local.labels
+  location = "us"
+  name     = "${each.key}-${random_id.bucket.hex}-${var.environment}"
+  project  = module.project.project_id
 }
 
 # Google Identity Group Membership
