@@ -4,7 +4,7 @@
 variable "billing_account" {
   description = "The alphanumeric ID of the billing account this project belongs to"
   type        = string
-  sensitive   = true
+  default     = "01C550-A2C86B-B8F16B"
 }
 
 # The google_cloud_identity_group resource requires this if you are using User ADCs (Application Default Credentials).
