@@ -1,7 +1,0 @@
-{
-	"github-actions.workflows.pinned.workflows": [
-		".github/workflows/production.yml",
-		".github/workflows/non-production.yml",
-		".github/workflows/sandbox.yml"
-	]
-}
