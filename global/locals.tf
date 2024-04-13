@@ -55,7 +55,7 @@ locals {
     "plt-lz-testing" = {
       github_repositories = [
         "github-terraform-gcp-called-workflows",
-        "google-cloud-kitchen-terraform",
+        "google-cloud-terraform-testing",
         "terraform-datadog-google-integration",
         "terraform-google-cloud-dns",
         "terraform-google-cloud-nat",
