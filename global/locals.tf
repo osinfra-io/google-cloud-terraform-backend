@@ -15,6 +15,13 @@ locals {
       github_repositories = ["backstage"]
     }
 
+    "plt-gke-info" = {
+      github_repositories = [
+        "gke-info-go",
+        "gke-info-java"
+      ]
+    }
+
     "plt-gh-organization" = {
       github_repositories = ["github-organization-management"]
     }
