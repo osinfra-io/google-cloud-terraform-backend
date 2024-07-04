@@ -3,7 +3,7 @@
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
@@ -11,7 +11,7 @@ repos:
       - id: check-symlinks
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.88.4
+    rev: v1.92.0
     hooks:
       - id: terraform_fmt
 
@@ -30,3 +30,14 @@ repos:
           - --hook-config=--path-to-file=README.md
           - --hook-config=--add-to-exiting-file=true
           - --hook-config=--create-file-if-not-exist=false
+
+  - repo: https://github.com/bridgecrewio/checkov.git
+    rev: 3.2.174
+    hooks:
+      - id: checkov
+        verbose: true
+        args:
+          - --skip-check
+          - "CKV_TF_1,CKV_TF_2" # temp
+          - --download-external-modules=true
+          - --quiet
