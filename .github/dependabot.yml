@@ -9,12 +9,10 @@ updates:
 
     directory: /
     schedule:
-      interval: weekly
-      day: sunday
+      interval: daily
 
   - package-ecosystem: terraform
     directories:
       - "**/*"
     schedule:
-      interval: weekly
-      day: sunday
+      interval: daily
