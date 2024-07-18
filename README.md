@@ -31,6 +31,7 @@ See the documentation for setting up a development environment [here](https://do
 
 ### 🛠️ Tools
 
+- [checkov](https://github.com/bridgecrewio/checkov)
 - [infracost](https://github.com/infracost/infracost)
 - [pre-commit](https://github.com/pre-commit/pre-commit)
 - [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
@@ -49,24 +50,20 @@ Links to documentation and other resources required to develop and iterate in th
 ### 📓 Terraform Documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-#### Requirements
-
-No requirements.
-
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.36.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
+| google | 5.38.0 |
+| random | 3.6.2 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_datadog"></a> [datadog](#module\_datadog) | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.6 |
-| <a name="module_project"></a> [project](#module\_project) | github.com/osinfra-io/terraform-google-project//global | v0.2.2 |
-| <a name="module_terraform_state_storage_bucket"></a> [terraform\_state\_storage\_bucket](#module\_terraform\_state\_storage\_bucket) | github.com/osinfra-io/terraform-google-storage-bucket | v0.1.3 |
+| datadog | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.6 |
+| project | github.com/osinfra-io/terraform-google-project//global | v0.2.2 |
+| terraform\_state\_storage\_bucket | github.com/osinfra-io/terraform-google-storage-bucket | v0.1.3 |
 
 #### Resources
 
@@ -82,22 +79,22 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
-| <a name="input_billing_users_group_id"></a> [billing\_users\_group\_id](#input\_billing\_users\_group\_id) | The numeric ID of the billing users group | `string` | `"03dy6vkm4a7ag9g"` | no |
-| <a name="input_cis_2_2_logging_sink_project_id"></a> [cis\_2\_2\_logging\_sink\_project\_id](#input\_cis\_2\_2\_logging\_sink\_project\_id) | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
-| <a name="input_datadog_api_key"></a> [datadog\_api\_key](#input\_datadog\_api\_key) | Datadog API key | `string` | n/a | yes |
-| <a name="input_datadog_app_key"></a> [datadog\_app\_key](#input\_datadog\_app\_key) | Datadog APP key | `string` | n/a | yes |
-| <a name="input_enable_datadog"></a> [enable\_datadog](#input\_enable\_datadog) | Enable Datadog integration | `bool` | `false` | no |
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
-| <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
-| <a name="input_workload_identity_pool_name"></a> [workload\_identity\_pool\_name](#input\_workload\_identity\_pool\_name) | The workload identity pool name | `string` | n/a | yes |
+| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| billing\_users\_group\_id | The numeric ID of the billing users group | `string` | `"03dy6vkm4a7ag9g"` | no |
+| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
+| datadog\_api\_key | Datadog API key | `string` | n/a | yes |
+| datadog\_app\_key | Datadog APP key | `string` | n/a | yes |
+| enable\_datadog | Enable Datadog integration | `bool` | `false` | no |
+| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| workload\_identity\_pool\_name | The workload identity pool name | `string` | n/a | yes |
 
 #### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_github_actions_service_account_emails"></a> [github\_actions\_service\_account\_emails](#output\_github\_actions\_service\_account\_emails) | The GitHub Actions service account emails |
-| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The project ID |
-| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The project number |
-| <a name="output_terraform_state_storage_buckets"></a> [terraform\_state\_storage\_buckets](#output\_terraform\_state\_storage\_buckets) | The Terraform state bucket names |
+| github\_actions\_service\_account\_emails | The GitHub Actions service account emails |
+| project\_id | The project ID |
+| project\_number | The project number |
+| terraform\_state\_storage\_buckets | The Terraform state bucket names |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

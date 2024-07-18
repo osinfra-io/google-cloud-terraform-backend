@@ -38,6 +38,6 @@ repos:
         verbose: true
         args:
           - --skip-check
-          - "CKV_TF_1,CKV_TF_2" # temp
+          - "CKV_TF_1"
           - --download-external-modules=true
           - --quiet
