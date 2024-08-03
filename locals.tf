@@ -11,10 +11,6 @@ locals {
   }
 
   service_accounts = {
-    "plt-backstage" = {
-      github_repositories = ["backstage"]
-    }
-
     "plt-gke-info" = {
       github_repositories = [
         "gke-info-go",
