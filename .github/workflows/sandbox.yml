@@ -16,19 +16,19 @@ permissions:
   id-token: write
 
 jobs:
-  global:
-    name: "Global"
+  main:
+    name: "Main"
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.2.4
     if: github.actor != 'dependabot[bot]'
     with:
       checkout_ref: ${{ github.ref }}
       environment: sandbox
-      github_environment: "Sandbox: Global"
+      github_environment: "Sandbox: Main"
       service_account: plt-lz-backend-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/sandbox.tfvars
       terraform_state_bucket: plt-lz-backend-2c8b-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: global-sandbox
+      terraform_workspace: main-sandbox
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
