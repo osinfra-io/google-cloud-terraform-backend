@@ -11,6 +11,10 @@ locals {
   }
 
   service_accounts = {
+    "plt-dd-organization" = {
+      github_repositories = ["datadog-organization-management"]
+    }
+
     "plt-gke-info" = {
       github_repositories = [
         "gke-info-go",
