@@ -54,7 +54,7 @@ Links to documentation and other resources required to develop and iterate in th
 
 | Name | Version |
 |------|---------|
-| google | 5.39.1 |
+| google | 5.42.0 |
 | random | 3.6.2 |
 
 #### Modules
