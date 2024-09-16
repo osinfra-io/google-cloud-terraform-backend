@@ -97,7 +97,7 @@ module "project" {
 # https://github.com/osinfra-io/terraform-google-storage-bucket
 
 module "terraform_state_storage_bucket" {
-  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.1.3"
+  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.2.0"
   for_each = local.service_accounts
 
   labels   = local.labels
