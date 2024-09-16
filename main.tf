@@ -50,7 +50,7 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.2.1"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.0"
   count  = var.enable_datadog ? 1 : 0
 
   api_key                            = var.datadog_api_key
