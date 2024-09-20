@@ -54,16 +54,16 @@ Links to documentation and other resources required to develop and iterate in th
 
 | Name | Version |
 |------|---------|
-| google | 5.42.0 |
-| random | 3.6.2 |
+| google | 6.3.0 |
+| random | 3.6.3 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.2.1 |
-| project | github.com/osinfra-io/terraform-google-project | v0.3.0 |
-| terraform\_state\_storage\_bucket | github.com/osinfra-io/terraform-google-storage-bucket | v0.1.3 |
+| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
+| project | github.com/osinfra-io/terraform-google-project | v0.4.0 |
+| terraform\_state\_storage\_bucket | github.com/osinfra-io/terraform-google-storage-bucket | v0.2.0 |
 
 #### Resources
 
