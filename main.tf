@@ -57,7 +57,7 @@ module "datadog" {
   is_cspm_enabled                    = true
   is_security_command_center_enabled = true
   labels                             = local.labels
-  project                            = module.project.project_id
+  project                            = module.project.id
 }
 
 # Google Project Module (osinfra.io)
@@ -103,7 +103,7 @@ module "terraform_state_storage_bucket" {
   labels   = local.labels
   location = "us"
   name     = "${each.key}-${random_id.bucket.hex}-${var.environment}"
-  project  = module.project.project_id
+  project  = module.project.id
 }
 
 # Google Identity Group Membership
@@ -146,7 +146,7 @@ resource "google_service_account" "github_actions" {
 
   account_id   = "${each.key}-github"
   display_name = "Service account for GitHub Actions"
-  project      = module.project.project_id
+  project      = module.project.id
 }
 
 # Google Service Account IAM Member Resource
