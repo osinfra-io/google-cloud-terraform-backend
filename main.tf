@@ -72,7 +72,7 @@ module "project" {
   folder_id                       = var.project_folder_id
   labels                          = module.helpers.labels
   monthly_budget_amount           = var.project_monthly_budget_amount
-  prefix                          = "plt"
+  prefix                          = "plt-lz"
 
   services = [
     "billingbudgets.googleapis.com",
