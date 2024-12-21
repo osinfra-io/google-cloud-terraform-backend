@@ -2,15 +2,11 @@
 # https://www.terraform.io/language/values/locals
 
 locals {
-  labels = {
-    cost-center = "x001"
-    env         = var.environment
-    repository  = "google-cloud-terraform-backend"
-    platform    = "google-cloud-landing-zone"
-    team        = "platform-google-cloud-landing-zone"
-  }
-
   service_accounts = {
+    "plt-backstage" = {
+      github_repositories = ["backstage"]
+    }
+
     "plt-dd-organization" = {
       github_repositories = ["datadog-organization-management"]
     }

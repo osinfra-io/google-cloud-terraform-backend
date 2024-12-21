@@ -49,12 +49,12 @@ Links to documentation and other resources required to develop and iterate in th
 
 ### 📓 Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 #### Providers
 
 | Name | Version |
 |------|---------|
-| google | 6.3.0 |
+| google | 6.14.1 |
 | random | 3.6.3 |
 
 #### Modules
@@ -62,7 +62,8 @@ Links to documentation and other resources required to develop and iterate in th
 | Name | Source | Version |
 |------|--------|---------|
 | datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
-| project | github.com/osinfra-io/terraform-google-project | v0.4.0 |
+| helpers | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
+| project | github.com/osinfra-io/terraform-google-project | v0.4.5 |
 | terraform\_state\_storage\_bucket | github.com/osinfra-io/terraform-google-storage-bucket | v0.2.0 |
 
 #### Resources
@@ -79,14 +80,14 @@ Links to documentation and other resources required to develop and iterate in th
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
 | billing\_users\_group\_id | The numeric ID of the billing users group | `string` | `"03dy6vkm4a7ag9g"` | no |
-| cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
 | datadog\_api\_key | Datadog API key | `string` | n/a | yes |
 | datadog\_app\_key | Datadog APP key | `string` | n/a | yes |
-| enable\_datadog | Enable Datadog integration | `bool` | `false` | no |
-| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
-| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| datadog\_enable | Enable Datadog integration | `bool` | `false` | no |
+| project\_billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| project\_cis\_2\_2\_logging\_sink\_project\_id | The CIS 2.2 logging sink benchmark project ID | `string` | n/a | yes |
+| project\_folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| project\_monthly\_budget\_amount | The monthly budget amount in USD to set for the project | `number` | `5` | no |
 | workload\_identity\_pool\_name | The workload identity pool name | `string` | n/a | yes |
 
 #### Outputs
@@ -97,4 +98,4 @@ Links to documentation and other resources required to develop and iterate in th
 | project\_id | The project ID |
 | project\_number | The project number |
 | terraform\_state\_storage\_buckets | The Terraform state bucket names |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
