@@ -23,7 +23,7 @@ jobs:
       checkout_ref: ${{ github.ref }}
       environment: production
       github_environment: "Production: Main"
-      service_account: plt-lz-backend-github@plt-lz-terraform-tf62-prod.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@plt-lz-terraform-tf56-prod.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/production.tfvars
       terraform_state_bucket: plt-lz-backend-53a5-prod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}

@@ -24,7 +24,7 @@ jobs:
       checkout_ref: ${{ github.ref }}
       environment: sandbox
       github_environment: "Sandbox: Main"
-      service_account: plt-lz-backend-github@plt-lz-terraform-tf91-sb.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@plt-lz-terraform-tf00-sb.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/sandbox.tfvars
       terraform_state_bucket: plt-lz-backend-4312-sb
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
