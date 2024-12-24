@@ -23,9 +23,9 @@ jobs:
       checkout_ref: ${{ github.ref }}
       environment: non-production
       github_environment: "Non-Production: Main"
-      service_account: plt-lz-backend-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@plt-lz-terraform-tfe2-nonprod.iam.gserviceaccount.com
       terraform_plan_args: -var-file=tfvars/non-production.tfvars
-      terraform_state_bucket: plt-lz-backend-3bfe-nonprod
+      terraform_state_bucket: plt-lz-backend-ae26-nonprod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
       terraform_workspace: main-non-production
       workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
