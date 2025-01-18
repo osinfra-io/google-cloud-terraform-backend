@@ -11,11 +11,8 @@ locals {
       github_repositories = ["datadog-organization-management"]
     }
 
-    "plt-gke-info" = {
-      github_repositories = [
-        "gke-info-go",
-        "gke-info-java"
-      ]
+    "plt-istio-test" = {
+      github_repositories = ["istio-test"]
     }
 
     "plt-gh-organization" = {
