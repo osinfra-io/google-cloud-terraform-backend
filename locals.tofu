@@ -1,5 +1,5 @@
 # Local Values
-# https://www.terraform.io/language/values/locals
+# https://opentofu.org/docs//language/values/locals
 
 locals {
   service_accounts = {
@@ -28,7 +28,7 @@ locals {
     }
 
     "plt-lz-backend" = {
-      github_repositories        = ["google-cloud-terraform-backend"]
+      github_repositories        = ["google-cloud-opentofu-backend"]
       billing_user_group_manager = true
     }
 
@@ -54,13 +54,13 @@ locals {
 
     "plt-lz-testing" = {
       github_repositories = [
-        "github-terraform-gcp-called-workflows"
+        "github-opentofu-gcp-called-workflows"
       ]
     }
   }
 
   # Flatten Function
-  # https://developer.hashicorp.com/terraform/language/functions/flatten
+  # https://opentofu.org/docs/language/functions/flatten
 
   # flatten ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.

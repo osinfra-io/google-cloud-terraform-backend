@@ -1,26 +1,26 @@
 terraform {
 
   # Requiring Providers
-  # https://www.terraform.io/language/providers/requirements#requiring-providers
+  # https://opentofu.org/docs//language/providers/requirements#requiring-providers
 
   required_providers {
 
     # Datadog Provider
-    # https://registry.terraform.io/providers/DataDog/datadog/latest/docs
+    # https://search.opentofu.org/provider/DataDog/datadog/latest/docs
 
     datadog = {
       source = "datadog/datadog"
     }
 
     # Google Cloud Platform Provider
-    # https://registry.terraform.io/providers/hashicorp/google/latest/docs
+    # https://search.opentofu.org/provider/hashicorp/google/latest/docs
 
     google = {
       source = "hashicorp/google"
     }
 
     # Random Provider
-    # https://www.terraform.io/docs/providers/random/index.html
+    # https://opentofu.org/docs//docs/providers/random/index.html
 
     random = {
       source = "hashicorp/random"
@@ -47,10 +47,10 @@ provider "datadog" {
 # }
 
 # Datadog Google Cloud Platform Integration Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-datadog-google-integration
+# https://github.com/osinfra-io/opentofu-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.6"
+  source = "github.com/osinfra-io/opentofu-datadog-google-integration?ref=v0.3.6"
   count  = var.datadog_enable ? 1 : 0
 
   api_key                            = var.datadog_api_key
@@ -61,14 +61,14 @@ module "datadog" {
 }
 
 # Google Project Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-project
+# https://github.com/osinfra-io/opentofu-google-project
 
 module "project" {
-  source = "github.com/osinfra-io/terraform-google-project?ref=v0.4.5"
+  source = "github.com/osinfra-io/opentofu-google-project?ref=v0.4.5"
 
   billing_account                 = var.project_billing_account
   cis_2_2_logging_sink_project_id = var.project_cis_2_2_logging_sink_project_id
-  description                     = "terraform"
+  description                     = "opentofu"
   folder_id                       = var.project_folder_id
   labels                          = module.helpers.labels
   monthly_budget_amount           = var.project_monthly_budget_amount
@@ -94,10 +94,10 @@ module "project" {
 }
 
 # Google Storage Bucket Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-storage-bucket
+# https://github.com/osinfra-io/opentofu-google-storage-bucket
 
-module "terraform_state_storage_bucket" {
-  source   = "github.com/osinfra-io/terraform-google-storage-bucket?ref=v0.2.1"
+module "opentofu_state_storage_bucket" {
+  source   = "github.com/osinfra-io/opentofu-google-storage-bucket?ref=v0.2.1"
   for_each = local.service_accounts
 
   labels   = module.helpers.labels
@@ -107,7 +107,7 @@ module "terraform_state_storage_bucket" {
 }
 
 # Google Identity Group Membership
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/cloud_identity_group_membership
 
 resource "google_cloud_identity_group_membership" "github_actions" {
   for_each = local.service_accounts
@@ -139,7 +139,7 @@ resource "google_cloud_identity_group_membership" "github_actions" {
 }
 
 # Google Service Account Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_service_account
 
 resource "google_service_account" "github_actions" {
   for_each = local.service_accounts
@@ -150,7 +150,7 @@ resource "google_service_account" "github_actions" {
 }
 
 # Google Service Account IAM Member Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_service_account_iam#google_service_account_iam_member
 
 resource "google_service_account_iam_member" "github_actions" {
   for_each = local.github_repositories
@@ -161,18 +161,18 @@ resource "google_service_account_iam_member" "github_actions" {
 }
 
 # Google Storage Bucket IAM Member
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member
 
 resource "google_storage_bucket_iam_member" "github_actions" {
   for_each = local.service_accounts
 
-  bucket = module.terraform_state_storage_bucket[each.key].name
+  bucket = module.opentofu_state_storage_bucket[each.key].name
   member = "serviceAccount:${google_service_account.github_actions[each.key].email}"
   role   = "roles/storage.objectAdmin"
 }
 
 # Random Random ID Resource
-# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id
+# https://search.opentofu.org/provider/hashicorp/random/latest/docs/resources/id
 
 resource "random_id" "bucket" {
   byte_length = 2

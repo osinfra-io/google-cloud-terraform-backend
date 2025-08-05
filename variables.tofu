@@ -1,5 +1,5 @@
 # Input Variables
-# https://www.terraform.io/language/values/variables
+# https://opentofu.org/docs//language/values/variables
 
 # The google_cloud_identity_group resource requires this if you are using User ADCs (Application Default Credentials).
 # This is only needed during bootstrapping.

@@ -1,6 +1,6 @@
-name: Add or update Terraform backend
-description: Service interface for adding or updating a Terraform backend in the Open Source Infrastructure (as Code) organization.
-title: Add or update Terraform backend
+name: Add or update OpenTofu backend
+description: Service interface for adding or updating a OpenTofu backend in the Open Source Infrastructure (as Code) organization.
+title: Add or update OpenTofu backend
 labels:
   - enhancement
   - good first issue
@@ -9,7 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please fill out the following details to add or update a Terraform backend in the Open Source Infrastructure (as Code) organization.
+        Please fill out the following details to add or update a OpenTofu backend in the Open Source Infrastructure (as Code) organization.
 
   - type: input
     id: email-address
@@ -25,7 +25,7 @@ body:
     attributes:
       label: "Google folder path:"
       description: The path of the Google folder to create or update.
-      placeholder: Platform - Kubernetes Engine/Autopilot
+      placeholder: Platform Team/Kubernetes/Sandbox
     validations:
       required: true
 
@@ -34,7 +34,7 @@ body:
     attributes:
       label: "Repository name(s):"
       description: The name or names of the repositories to add that are allowed to create resources in the above Google folder path using OIDC authentication.
-      placeholder: google-cloud-kubernetes-engine-autopilot, ...
+      placeholder: google-cloud-kubernetes-engine, ...
     validations:
       required: true
 
