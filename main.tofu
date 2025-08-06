@@ -20,7 +20,7 @@ terraform {
     }
 
     # Random Provider
-    # https://opentofu.org/docs/docs/providers/random/index.html
+    # https://opentofu.org/docs/providers/random/index.html
 
     random = {
       source = "hashicorp/random"
