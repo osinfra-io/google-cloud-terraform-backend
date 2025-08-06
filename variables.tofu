@@ -1,5 +1,5 @@
 # Input Variables
-# https://opentofu.org/docs//language/values/variables
+# https://opentofu.org/docs/language/values/variables
 
 # This is only needed during bootstrapping.
 

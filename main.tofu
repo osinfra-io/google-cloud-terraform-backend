@@ -1,7 +1,7 @@
 terraform {
 
   # Requiring Providers
-  # https://opentofu.org/docs//language/providers/requirements#requiring-providers
+  # https://opentofu.org/docs/language/providers/requirements#requiring-providers
 
   required_providers {
 
@@ -20,7 +20,7 @@ terraform {
     }
 
     # Random Provider
-    # https://opentofu.org/docs//docs/providers/random/index.html
+    # https://opentofu.org/docs/docs/providers/random/index.html
 
     random = {
       source = "hashicorp/random"
