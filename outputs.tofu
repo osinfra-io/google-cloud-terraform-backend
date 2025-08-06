@@ -1,5 +1,5 @@
 # Output Values
-# https://www.terraform.io/language/values/outputs
+# https://opentofu.org/docs/language/values/outputs
 
 output "project_number" {
   description = "The project number"
@@ -18,9 +18,9 @@ output "github_actions_service_account_emails" {
   }
 }
 
-output "terraform_state_storage_buckets" {
-  description = "The Terraform state bucket names"
+output "opentofu_state_storage_buckets" {
+  description = "The OpenTofu state bucket names"
   value = {
-    for k, v in module.terraform_state_storage_bucket : k => v.name
+    for k, v in module.opentofu_state_storage_bucket : k => v.name
   }
 }
