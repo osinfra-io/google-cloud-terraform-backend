@@ -22,9 +22,9 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Production: Main"
-      service_account: plt-lz-backend-github@plt-lz-opentofu-tf56-prod.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@plt-lz-opentofu-tfa3-prod.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/production.tfvars
-      opentofu_state_bucket: plt-lz-backend-53a5-prod
+      opentofu_state_bucket: plt-lz-backend-ec8a-prod
       opentofu_version: ${{ vars.TERRAFORM_VERSION }}
       opentofu_workspace: main-production
       workload_identity_provider: projects/134040294660/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
