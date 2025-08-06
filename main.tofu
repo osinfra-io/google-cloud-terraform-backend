@@ -33,11 +33,8 @@ provider "datadog" {
   app_key = var.datadog_app_key
 }
 
-# The google_cloud_identity_group resource requires this if you are using User ADCs (Application Default Credentials).
-# Your account must have the serviceusage.services.use permission on the billing_project you defined.
-# The following APIs must be enabled on the billing_project:
-# - cloudresourcemanager.googleapis.com
-# - cloudidentity.googleapis.com
+# Google Cloud Provider
+# https://search.opentofu.org/provider/hashicorp/google/latest/docs
 
 # This is only needed during bootstrapping.
 
@@ -68,7 +65,7 @@ module "project" {
 
   billing_account                 = var.project_billing_account
   cis_2_2_logging_sink_project_id = var.project_cis_2_2_logging_sink_project_id
-  description                     = "opentofu"
+  description                     = "backend"
   folder_id                       = var.project_folder_id
   labels                          = module.helpers.labels
   monthly_budget_amount           = var.project_monthly_budget_amount

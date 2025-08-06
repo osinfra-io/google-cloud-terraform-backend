@@ -22,10 +22,10 @@ jobs:
     with:
       checkout_ref: ${{ github.ref }}
       github_environment: "Non-Production: Main"
-      service_account: plt-lz-backend-github@plt-lz-opentofu-tfe6-nonprod.iam.gserviceaccount.com
+      service_account: plt-lz-backend-github@plt-lz-backend-tfa3-nonprod.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/non-production.tfvars
       opentofu_state_bucket: plt-lz-backend-3986-nonprod
-      opentofu_version: ${{ vars.TERRAFORM_VERSION }}
+      opentofu_version: ${{ vars.OPENTOFU_VERSION }}
       opentofu_workspace: main-non-production
       workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
