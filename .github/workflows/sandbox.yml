@@ -26,7 +26,7 @@ jobs:
       github_environment: "Sandbox: Main"
       service_account: plt-lz-backend-github@plt-lz-backend-tf69-sb.iam.gserviceaccount.com
       opentofu_plan_args: -var-file=tfvars/sandbox.tfvars
-      opentofu_state_bucket: plt-lz-backend-0ec8-sb
+      opentofu_state_bucket: plt-lz-backend-0bf7-sb
       opentofu_version: ${{ vars.OPENTOFU_VERSION }}
       opentofu_workspace: main-sandbox
       workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
